@@ -1,0 +1,84 @@
+@charset "utf-8";
+/* CSS Document */
+
+.float-left {
+    float: left;
+}
+
+.float-right {
+    float: right;
+}
+
+.ln {
+    position: absolute;
+    left: 29%;
+    top: 52%;
+    font-size: 11px;
+    color: red;
+}
+
+label.mand {
+    background-image: url(../images/staricon_09.png);
+    background-repeat: no-repeat;
+    background-position: right;
+    width: auto;
+    padding-right: 10px;
+}
+
+.cellDataCenter{
+    text-align: center;
+}
+
+.form-error{
+    border-color: #843534;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 6px #ce8483;
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 6px #ce8483;
+}
+
+.bottom-btn-group .top-button{
+    margin: 10px 0 0 5px;
+    float: none;
+}
+
+.show-grid {
+    margin: 15px 0;
+}
+
+fieldset.scheduler-border {
+    border: 1px groove #ddd !important;
+    padding: 0 1.4em 0 1.4em !important;
+    margin: 0 0 1.5em 0 !important;
+    border-radius: 4px;
+    -webkit-box-shadow:  0px 0px 0px 0px #ddd;
+    box-shadow:  0px 0px 0px 0px #ddd;
+}
+
+legend.scheduler-border {
+    font-size: 1.2em !important;
+    font-weight: bold !important;
+    text-align: left !important;
+    margin-bottom: 0px !important;
+    width:auto;
+    padding:0 10px;
+    border-bottom:none;
+}
+
+.message-box .modal-dialog{
+    width: 400px;
+    margin: 130px auto;
+}
+
+.typeahead,
+.tt-query,
+.tt-hint {
+    width: 100%;
+    height: 30px;
+    padding: 8px 12px;
+    font-size: 12px;
+    line-height: 30px;
+    border: 2px solid #ccc;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    border-radius: 8px;
+    outline: none;
+}
