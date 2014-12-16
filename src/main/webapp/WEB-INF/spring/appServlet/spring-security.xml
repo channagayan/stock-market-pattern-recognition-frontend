@@ -1,0 +1,33 @@
+<beans:beans xmlns="http://www.springframework.org/schema/security"
+             xmlns:beans="http://www.springframework.org/schema/beans"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.springframework.org/schema/beans
+           http://www.springframework.org/schema/beans/spring-beans-3.0.xsd            http://www.springframework.org/schema/security
+           http://www.springframework.org/schema/security/spring-security-3.1.xsd">
+    <http auto-config="true">
+        <intercept-url pattern="/login.jsp*" access="IS_AUTHENTICATED_ANONYMOUSLY"/>
+        <intercept-url pattern="/arcane*" access="ROLE_USER, ROLE_ADMIN"/>
+     <!--   <intercept-url pattern="/update*" access="ROLE_ADMIN"/>
+        <intercept-url pattern="/welcome*" access="ROLE_USER"/>-->
+        <form-login login-page="/login" default-target-url="/arcane"
+                    authentication-failure-url="/loginfailed"
+        />
+        <logout logout-success-url="/logout"/>
+    </http>
+
+    <beans:bean id="dataSourceLogin" class="org.springframework.jndi.JndiObjectFactoryBean">
+        <beans:property name="jndiName" value="java:comp/env/jdbc/arcanedb"/>
+    </beans:bean>
+    <authentication-manager>
+        <authentication-provider>
+            <jdbc-user-service data-source-ref="dataSourceLogin"
+                               users-by-username-query="SELECT username, password, 1 AS enabled
+                                            FROM user WHERE username=?"
+                               authorities-by-username-query="SELECT username , case
+                                                                                  when userid = 2 then 'ROLE_USER'
+                                                                                  when userid = 1 then 'ROLE_ADMIN'
+                                                                                end as authority
+                                                                                FROM user WHERE username=?" />
+        </authentication-provider>
+    </authentication-manager>
+
+</beans:beans>
