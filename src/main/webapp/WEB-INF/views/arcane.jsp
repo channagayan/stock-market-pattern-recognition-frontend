@@ -20,6 +20,10 @@
     <script type="text/javascript" src="/js/jquery-1.10.2.min.js"></script>
     <script type="text/javascript" src="/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="/js/jquery.multiple.select.js"></script>
+    <script src="http://code.highcharts.com/highcharts.js" type="text/javascript"></script>
+    <script src="http://code.highcharts.com/modules/exporting.js" type="text/javascript"></script>
+    <script src="/js/liveChartWithWebsocket.js" type="text/javascript"></script>
+
 </head>
 
 <body>
@@ -133,21 +137,9 @@
                                     </div>
                                 </div>
                             </div>
+
                             <div class="panel-body text-center">
-                                <ul class="list-group list-group-flush">
-                                    <li class="list-group-item liitem"><strong>Position:</strong>
-                                        <span class="pull-right">Pattern 1</span>
-                                    </li>
-                                    <li class="list-group-item liitem"><strong>Company:</strong>
-                                        <span class="pull-right">PAttern 2</span>
-                                    </li>
-                                    <li class="list-group-item liitem"><strong>Department:</strong>
-                                        <span class="pull-right">Pattern 3</span>
-                                    </li>
-                                    <li class="list-group-item liitem"><strong>Project Duration:</strong>
-                                        <span class="pull-right">Pattern 4</span>
-                                    </li>
-                                </ul>
+                                <div id="container" style="min-width: 400px; height: 400px; margin: 0 auto"></div>
                             </div>
 
                             <div class="panel-footer">
