@@ -11,7 +11,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <title>MyFareTravel</title>
+    <title>ARCANE</title>
     <link href='<c:url value="/css/bootstrap.css" />' rel="stylesheet" type="text/css"/>
     <link href='<c:url value="/css/bootstrap-theme.css" />' rel="stylesheet" type="text/css"/>
     <link href='<c:url value="/css/style.css" />' rel="stylesheet" type="text/css"/>
