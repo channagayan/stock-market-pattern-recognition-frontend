@@ -5,11 +5,12 @@
 
 $(function () {
     $(document).ready(function () {
-        Highcharts.setOptions({
+         chart = new Highcharts.setOptions({
             global: {
                 useUTC: false
             }
         });
+
 
         $('#container').highcharts({
             chart: {
@@ -69,7 +70,7 @@ $(function () {
                 enabled: false
             },
             series: [{
-                name: 'Random data',
+                name: 'Company ABC1 Pvt Ltd',
                 data: (function () {
                     var data = [],
                         time = (new Date()).getTime(),
@@ -84,7 +85,9 @@ $(function () {
                     return data;
                 }())
             }]
-        });
+
+        }
+        );
     });
     });
 
