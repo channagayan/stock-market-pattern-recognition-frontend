@@ -6,6 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
 <head>
@@ -92,11 +93,7 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <h2>Dashboard <small>Dashboard Home</small></h2>
-                        <%--<div class="alert alert-success alert-dismissable">
-                            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-                            Welcome to the admin dashboard! Feel free to review all pages and modify the layout to your needs.
-                            For the purpose of data visualization, additional widgets are used, so make sure you review all provided information.
-                        </div>--%>
+
                     </div>
                 </div>
 
@@ -154,7 +151,7 @@
                                 <div class="panel-heading">
                                     <h4 class="text-center">Recent Patterns<span class="glyphicon glyphicon-user pull-right"></span></h4>
                                 </div>
-                                <div class="panel-body text-center">
+                                <%--<div class="panel-body text-center">
                                     <ul class="list-group list-group-flush">
                                         <li class="list-group-item liitem"><strong>Position:</strong>
                                             <span class="pull-right">Pattern 1</span>
@@ -169,7 +166,29 @@
                                             <span class="pull-right">Pattern 4</span>
                                         </li>
                                     </ul>
-                                </div>
+                                </div>--%>
+                            <div class="panel-body text-center">
+                                <ul class="list-group list-group-flush">
+                                    <c:forEach var="pattern" items="${patterns}">
+                                        <li class="list-group-item liitem"><strong>${pattern.id}:</strong>
+                                            <span class="pull-right">${pattern.name}</span>
+                                        </li>
+                                    </c:forEach>
+
+                                    <%--<li class="list-group-item liitem"><strong>Position:</strong>
+                                        <span class="pull-right">${channa}</span>
+                                    </li>
+                                    <li class="list-group-item liitem"><strong>Company:</strong>
+                                        <span class="pull-right">PAttern 2</span>
+                                    </li>
+                                    <li class="list-group-item liitem"><strong>Department:</strong>
+                                        <span class="pull-right">Pattern 3</span>
+                                    </li>
+                                    <li class="list-group-item liitem"><strong>Project Duration:</strong>
+                                        <span class="pull-right">Pattern 4</span>
+                                    </li>--%>
+                                </ul>
+                            </div>
 
                                 <div class="panel-footer">
                                     <div class="row">
