@@ -12,6 +12,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -30,25 +33,15 @@ public class HomeController {
     public ModelAndView printWelcome(ModelMap model){
         ModelAndView mav = new ModelAndView("arcane") ;
        List<Pattern> patternList=patternDao.patternList();
-        //List<String> list = getList();
         mav.addObject("patterns", patternList);
-        //mav.addObject("channa", "gayan");
+        System.out.println(".........................calling db controller..................");
         return mav;
     }
-
-    private List<String> getList() {
-
-        List<String> list = new ArrayList<String>();
-        list.add("List A");
-        list.add("List B");
-        list.add("List C");
-        list.add("List D");
-        list.add("List 1");
-        list.add("List 2");
-        list.add("List 3");
-
-        return list;
-
+    @RequestMapping(value = "/patternList", method = RequestMethod.GET)
+    public void getPatternList(HttpServletRequest request, HttpServletResponse response) throws IOException {
+        System.out.println("list controller called..............................");
+        response.getWriter().println( "bla bla bla");
     }
+
 
 }

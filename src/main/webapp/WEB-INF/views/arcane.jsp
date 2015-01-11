@@ -168,7 +168,7 @@
                                     </ul>
                                 </div>--%>
                             <div class="panel-body text-center">
-                                <ul class="list-group list-group-flush">
+                                <ul class="list-group list-group-flush" id="patternList">
                                     <c:forEach var="pattern" items="${patterns}">
                                         <li class="list-group-item liitem"><strong>${pattern.id}:</strong>
                                             <span class="pull-right">${pattern.name}</span>
