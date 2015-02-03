@@ -12,4 +12,5 @@ public interface PatternDao {
     public List<Pattern> patternList();
     public List<TrippleBottom> getTrippleBottomList();
     public List<Pattern> getAllPatternList();
+    public TrippleBottom getTrippleBottom(String id);
 }

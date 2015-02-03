@@ -4,6 +4,7 @@ import com.arcane.dao.PatternDao;
 import com.arcane.model.*;
 import com.arcane.model.TrippleBottom;
 import com.arcane.model.User;
+import com.sun.org.apache.xpath.internal.SourceTree;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 
@@ -101,5 +102,26 @@ public class PatternDaoImpl implements PatternDao {
         }
 
         return listPattern;
+    }
+
+    @Override
+    public TrippleBottom getTrippleBottom(String id){
+        JdbcTemplate jdbcTemplate = new JdbcTemplate(dataSource);
+        String sql = "SELECT * from tripplebottom where id="+id;
+        List<TrippleBottom> trippleBottom=jdbcTemplate.query(sql, new RowMapper<TrippleBottom>() {
+
+            @Override
+            public TrippleBottom mapRow(ResultSet rs, int rowNumber) throws SQLException {
+                TrippleBottom trippleBottom1 = new TrippleBottom();
+                trippleBottom1.setFirstMinPrice(rs.getDouble("firstMinPrice"));
+                trippleBottom1.setSecondMinPrice(rs.getDouble("secondMinPrice"));
+                trippleBottom1.setThirdMinPrice(rs.getDouble("thirdMinPrice"));
+                trippleBottom1.setBreakPointPrice(rs.getDouble("breakPointPrice"));
+                return trippleBottom1;
+            }
+
+        });
+
+        return trippleBottom.get(0);
     }
 }

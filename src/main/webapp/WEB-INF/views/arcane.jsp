@@ -24,7 +24,7 @@
     <script src="http://code.highcharts.com/highcharts.js" type="text/javascript"></script>
     <script src="http://code.highcharts.com/modules/exporting.js" type="text/javascript"></script>
     <script src="/js/liveChartWithWebsocket.js" type="text/javascript"></script>
-    <script src="/js/patternChart.js" type="text/javascript"></script>
+    <script src="/js/currentPattern.js" type="text/javascript"></script>
 
 </head>
 
@@ -150,7 +150,7 @@
                     <div class="col-sm-12 col-md-4">
                         <div id="alerts" class="panel">
                                 <div class="panel-heading">
-                                    <h4 class="text-center">Recent Patterns<span class="glyphicon glyphicon-user pull-right"></span></h4>
+                                    <h4 class="text-center" >Recent Patterns<span class="glyphicon glyphicon-user pull-right"></span></h4>
                                 </div>
                                 <%--<div class="panel-body text-center">
                                     <ul class="list-group list-group-flush">
@@ -168,11 +168,13 @@
                                         </li>
                                     </ul>
                                 </div>--%>
-                            <div class="panel-body text-center">
+                            <div class="panel-body text-center" id="a">
+
                                 <ul class="list-group list-group-flush" id="patternList">
                                     <c:forEach var="pattern" items="${patterns}">
-                                        <li class="list-group-item liitem"><strong>${pattern.id}:</strong>
-                                            <span class="pull-right">${pattern.name}</span>
+                                        <li class="list-group-item liitem" onclick="javaScript:loadGraph('${pattern.id}','${pattern.name}')"><strong>${pattern.id}:</strong>
+                                            <span class="pull-right"  >${pattern.name}</span>
+
                                         </li>
                                     </c:forEach>
 

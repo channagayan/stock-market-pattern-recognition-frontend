@@ -5,16 +5,17 @@ import com.arcane.dao.Impl.UserDaoImpl;
 import com.arcane.dao.PatternDao;
 import com.arcane.dao.UserDao;
 import com.arcane.model.Pattern;
+import com.arcane.model.TrippleBottom;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -44,5 +45,27 @@ public class HomeController {
         response.getWriter().println( "bla bla bla");
     }
 
+    @RequestMapping(value = "/patternData", method = RequestMethod.GET)
+    @ResponseBody
+    public List<Double> getPatternData(HttpServletRequest request, HttpServletResponse response,@RequestParam("patternId") String patternId,
+                                   @RequestParam("patternName") String patternName) throws IOException {
+        List<Double> data=new ArrayList<Double>();
+        switch (patternName){
+            case "tripplebottom":
+                TrippleBottom trippleBottom=patternDao.getTrippleBottom(patternId);
+                data.add(trippleBottom.getFirstMinPrice());
+                data.add(trippleBottom.getSecondMinPrice());
+                data.add(trippleBottom.getThirdMinPrice());
+                data.add(trippleBottom.getBreakPointPrice());
+                break;
+            default:System.out.println("no pattern found in switch case");
+
+
+        }
+
+
+
+        return data;
+    }
 
 }

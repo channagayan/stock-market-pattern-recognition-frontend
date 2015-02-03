@@ -1,6 +1,9 @@
 /**
  * Created by DELL on 11/24/2014.
  */
+function test() {
+    alert("name");
+}
 $(function() {
     $('#pattern').multipleSelect({
         placeholder: "Select Patterns",

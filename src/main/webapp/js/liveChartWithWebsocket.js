@@ -2,7 +2,6 @@
  * Created by Chann on 12/18/2014.
  */
 
-
 $(function () {
     $(document).ready(function () {
          chart = new Highcharts.setOptions({
