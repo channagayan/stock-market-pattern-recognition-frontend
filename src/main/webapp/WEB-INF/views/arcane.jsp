@@ -24,6 +24,7 @@
     <script src="http://code.highcharts.com/highcharts.js" type="text/javascript"></script>
     <script src="http://code.highcharts.com/modules/exporting.js" type="text/javascript"></script>
     <script src="/js/liveChartWithWebsocket.js" type="text/javascript"></script>
+    <script src="/js/patternChart.js" type="text/javascript"></script>
 
 </head>
 
@@ -197,6 +198,27 @@
                                 </div>
                             </div>
                     </div>
+
+                    <div class="col-sm-12 col-md-4">
+                        <div id="patternNow" class="panel">
+                            <div class="panel-heading">
+                                <h4 class="text-center">Recent Patterns<span class="glyphicon glyphicon-user pull-right"></span></h4>
+                            </div>
+
+                            <div class="panel-body text-center" id="patternContainer">
+                                <%--<div id="patternContainer" style="min-width: 310px; height: 400px; margin: 0 auto"></div>--%>
+
+                            </div>
+
+                            <div class="panel-footer">
+                                <div class="row">
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
                 </div>
         </div>
     </div>

@@ -32,7 +32,8 @@ public class HomeController {
     @RequestMapping(method = RequestMethod.GET)
     public ModelAndView printWelcome(ModelMap model){
         ModelAndView mav = new ModelAndView("arcane") ;
-       List<Pattern> patternList=patternDao.patternList();
+       //List<Pattern> patternList=patternDao.patternList();
+        List<Pattern> patternList=patternDao.getAllPatternList();
         mav.addObject("patterns", patternList);
         System.out.println(".........................calling db controller..................");
         return mav;
