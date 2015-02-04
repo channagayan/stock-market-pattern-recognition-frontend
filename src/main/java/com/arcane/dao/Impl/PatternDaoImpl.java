@@ -92,6 +92,7 @@ public class PatternDaoImpl implements PatternDao {
                 public Pattern mapRow(ResultSet rs, int rowNumber) throws SQLException {
                     Pattern pattern1 = new Pattern();
                     pattern1.setId(rs.getInt("id"));
+                    pattern1.setStock(rs.getString("stock"));
                     //pattern1.setName(rs.getString("name"));
                     pattern1.setName(rs.getMetaData().getTableName(1));
                     return pattern1;
@@ -117,6 +118,7 @@ public class PatternDaoImpl implements PatternDao {
                 trippleBottom1.setSecondMinPrice(rs.getDouble("secondMinPrice"));
                 trippleBottom1.setThirdMinPrice(rs.getDouble("thirdMinPrice"));
                 trippleBottom1.setBreakPointPrice(rs.getDouble("breakPointPrice"));
+                //trippleBottom1.setStock("stock");
                 return trippleBottom1;
             }
 

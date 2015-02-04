@@ -13,6 +13,9 @@ public class TrippleBottom extends Pattern {
     private double thirdMinPrice;
     private double breakPointPrice;
 
+
+
+
     public String getFirstMin() {
         return firstMin;
     }

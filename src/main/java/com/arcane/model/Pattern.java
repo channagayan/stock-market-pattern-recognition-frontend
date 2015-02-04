@@ -8,15 +8,15 @@ import java.io.Serializable;
 public class Pattern implements Serializable {
     private String name;
     private int id;
-    private String company;
+    private String stock;
     private String type;
 
-    public String getCompany() {
-        return company;
+    public String getStock() {
+        return stock;
     }
 
-    public void setCompany(String company) {
-        this.company = company;
+    public void setStock(String company) {
+        this.stock = company;
     }
 
     public String getType() {
