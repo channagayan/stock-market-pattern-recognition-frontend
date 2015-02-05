@@ -61,6 +61,10 @@ public class PatternDaoImpl implements PatternDao {
                 pattern.setSecondMinPrice(rs.getDouble("secondMinPrice"));
                 pattern.setThirdMinPrice(rs.getDouble("thirdMinPrice"));
                 pattern.setBreakPointPrice(rs.getDouble("breakPointPrice"));
+                pattern.setFirstMax(rs.getString("firstMax"));
+                pattern.setFirstMaxPrice(rs.getDouble("firstMaxPrice"));
+                pattern.setSecondMax(rs.getString("secondMax"));
+                pattern.setSecondMaxPrice(rs.getDouble("secondMaxPrice"));
                 return pattern;
             }
 
@@ -118,6 +122,8 @@ public class PatternDaoImpl implements PatternDao {
                 trippleBottom1.setSecondMinPrice(rs.getDouble("secondMinPrice"));
                 trippleBottom1.setThirdMinPrice(rs.getDouble("thirdMinPrice"));
                 trippleBottom1.setBreakPointPrice(rs.getDouble("breakPointPrice"));
+                trippleBottom1.setFirstMaxPrice(rs.getDouble("firstMaxPrice"));
+                trippleBottom1.setSecondMaxPrice(rs.getDouble("secondMaxPrice"));
                 //trippleBottom1.setStock("stock");
                 return trippleBottom1;
             }
@@ -125,5 +131,28 @@ public class PatternDaoImpl implements PatternDao {
         });
 
         return trippleBottom.get(0);
+    }
+
+    @Override
+    public Doubletop getDoubletop(String id){
+        JdbcTemplate jdbcTemplate = new JdbcTemplate(dataSource);
+        String sql = "SELECT * from doubletop where id="+id;
+        List<Doubletop> doubletop=jdbcTemplate.query(sql, new RowMapper<Doubletop>() {
+
+            @Override
+            public Doubletop mapRow(ResultSet rs, int rowNumber) throws SQLException {
+                Doubletop doubletop1 = new Doubletop();
+
+                doubletop1.setBreakPointPrice(rs.getDouble("breakPointPrice"));
+                doubletop1.setFirstMaxPrice(rs.getDouble("firstMaxPrice"));
+                doubletop1.setFirstMinPrice(rs.getDouble("firstMinPrice"));
+                doubletop1.setSecondMaxPrice(rs.getDouble("secondMaxPrice"));
+
+                return doubletop1;
+            }
+
+        });
+
+        return doubletop.get(0);
     }
 }

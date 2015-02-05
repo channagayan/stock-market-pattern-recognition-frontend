@@ -28,10 +28,10 @@ $(function () {
                         setInterval(function () {
                             var x = (new Date()).getTime(), // current time
                                 y = Math.round(Math.random() * 100);
-                            z = parseInt(event.data)+3;
-                            a = parseInt(event.data);
-                            b = parseInt(event.data)+5;
-                            c = parseInt(event.data);
+                            z = parseInt(event.data);
+                            a = Math.round(Math.random() * 100);
+                            b = Math.round(Math.random() * 100);
+                            c = Math.round(Math.random() * 100);
                             series.addPoint([x, y,z,a,c], true, true);
                         }, 1000);
                     }
@@ -87,7 +87,6 @@ $(function () {
     });
 
 });
-
 
 function getNewPattern()
 {
