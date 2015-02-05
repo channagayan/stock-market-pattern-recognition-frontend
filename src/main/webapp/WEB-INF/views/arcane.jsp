@@ -21,7 +21,7 @@
     <script type="text/javascript" src="/js/jquery-1.10.2.min.js"></script>
     <script type="text/javascript" src="/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="/js/jquery.multiple.select.js"></script>
-    <script src="http://code.highcharts.com/highcharts.js" type="text/javascript"></script>
+    <%--<script src="http://code.highcharts.com/highcharts.js" type="text/javascript"></script>--%>
     <script src="http://code.highcharts.com/stock/highstock.js"></script>
     <script src="http://code.highcharts.com/modules/exporting.js" type="text/javascript"></script>
     <script src="/js/liveChartWithWebsocket.js" type="text/javascript"></script>
@@ -100,7 +100,7 @@
                 </div>
 
                 <div class="row">
-                    <div class="col-sm-12 col-md-8">
+                    <div class="col-sm-12 col-md-12">
                         <div id="graph" class="panel">
                             <div class="panel-heading">
                                 <div class="row">
@@ -138,7 +138,7 @@
                             </div>
 
                             <div class="panel-body text-center">
-                                <div id="container" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+                                <div id="container" style="min-width: 310px; height: 404px; margin: 0 auto"></div>
                             </div>
 
                             <div class="panel-footer">
