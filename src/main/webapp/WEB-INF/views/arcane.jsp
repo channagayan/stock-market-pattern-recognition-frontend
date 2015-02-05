@@ -151,7 +151,7 @@
 
                 </div>
                 <div class="row">
-                    <div class="col-sm-12 col-md-4">
+                    <div class="col-sm-12 col-md-4" style="width:50%;">
                         <div id="alerts" class="panel">
                             <div class="panel-heading">
                                 <h4 class="text-center" >Recent Patterns<span class="glyphicon glyphicon-user pull-right"></span></h4>
@@ -179,7 +179,7 @@
                         </div>
                     </div>
 
-                    <div class="col-sm-12 col-md-4">
+                    <div class="col-sm-12 col-md-4" style="width:50%;">
                         <div id="patternNow" class="panel">
                             <div class="panel-heading">
                                 <h4 class="text-center">Recent Patterns<span class="glyphicon glyphicon-user pull-right"></span></h4>
