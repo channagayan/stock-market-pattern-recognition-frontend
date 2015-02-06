@@ -155,4 +155,52 @@ public class PatternDaoImpl implements PatternDao {
 
         return doubletop.get(0);
     }
+
+    @Override
+    public DoubleBottom getDoubleBottom(String id){
+        JdbcTemplate jdbcTemplate = new JdbcTemplate(dataSource);
+        String sql = "SELECT * from doublebottom where id="+id;
+        List<DoubleBottom> doublebottom=jdbcTemplate.query(sql, new RowMapper<DoubleBottom>() {
+
+            @Override
+            public DoubleBottom mapRow(ResultSet rs, int rowNumber) throws SQLException {
+                DoubleBottom doublebottom1 = new DoubleBottom();
+
+                doublebottom1.setBreakPointPrice(rs.getDouble("breakPointPrice"));
+                doublebottom1.setFirstMaxPrice(rs.getDouble("firstMaxPrice"));
+                doublebottom1.setFirstMinPrice(rs.getDouble("firstMinPrice"));
+                doublebottom1.setSecondMinPrice(rs.getDouble("secondMinPrice"));
+
+                return doublebottom1;
+            }
+
+        });
+
+        return doublebottom.get(0);
+    }
+
+    @Override
+    public TrippleTop getTrippleTop(String id){
+        JdbcTemplate jdbcTemplate = new JdbcTemplate(dataSource);
+        String sql = "SELECT * from trippletop where id="+id;
+        List<TrippleTop> trippletop=jdbcTemplate.query(sql, new RowMapper<TrippleTop>() {
+
+            @Override
+            public TrippleTop mapRow(ResultSet rs, int rowNumber) throws SQLException {
+                TrippleTop trippletop1 = new TrippleTop();
+
+                trippletop1.setBreakPointPrice(rs.getDouble("breakPointPrice"));
+                trippletop1.setFirstMaxPrice(rs.getDouble("firstMaxPrice"));
+                trippletop1.setSecondMaxPrice(rs.getDouble("secondMaxPrice"));
+                trippletop1.setThirdMaxPrice(rs.getDouble("thirdMaxPrice"));
+                trippletop1.setFirstMinPrice(rs.getDouble("firstMinPrice"));
+                trippletop1.setSecondMinPrice(rs.getDouble("secondMinPrice"));
+
+                return trippletop1;
+            }
+
+        });
+
+        return trippletop.get(0);
+    }
 }

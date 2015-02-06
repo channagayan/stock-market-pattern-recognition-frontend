@@ -1,8 +1,6 @@
 package com.arcane.dao;
 
-import com.arcane.model.Doubletop;
-import com.arcane.model.Pattern;
-import com.arcane.model.TrippleBottom;
+import com.arcane.model.*;
 
 import java.util.List;
 
@@ -15,4 +13,6 @@ public interface PatternDao {
     public List<Pattern> getAllPatternList();
     public TrippleBottom getTrippleBottom(String id);
     public Doubletop getDoubletop(String id);
+    public DoubleBottom getDoubleBottom(String id);
+    public TrippleTop getTrippleTop(String id);
 }

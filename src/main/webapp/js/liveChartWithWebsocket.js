@@ -25,10 +25,12 @@ $(function () {
                     connection.onmessage = function (event) {
                         getNewPattern();
 
+                        var json=JSON.parse(event.data);
+                        //alert(json.num);
                         setInterval(function () {
                             var x = (new Date()).getTime(), // current time
                                 y = Math.round(Math.random() * 100);
-                            z = parseInt(event.data);
+                            z = parseInt(json.num);
                             a = Math.round(Math.random() * 100);
                             b = Math.round(Math.random() * 100);
                             c = Math.round(Math.random() * 100);
@@ -88,15 +90,6 @@ $(function () {
 
 });
 
-function getNewPattern()
-{
-    $.ajax({
-        success: function(data) {
-            $("#patternList").empty();
-            $( "#patternList" ).load( "/arcane #patternList" );
-        }
-    });
-}
 
 
 function getNewPattern()

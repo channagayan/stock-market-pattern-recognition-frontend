@@ -4,9 +4,7 @@ import com.arcane.dao.Impl.PatternDaoImpl;
 import com.arcane.dao.Impl.UserDaoImpl;
 import com.arcane.dao.PatternDao;
 import com.arcane.dao.UserDao;
-import com.arcane.model.Doubletop;
-import com.arcane.model.Pattern;
-import com.arcane.model.TrippleBottom;
+import com.arcane.model.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -67,6 +65,22 @@ public class HomeController {
                 data.add(doubletop.getFirstMinPrice());
                 data.add(doubletop.getSecondMaxPrice());
                 data.add(doubletop.getBreakPointPrice());
+                break;
+            case "doublebottom":
+                DoubleBottom doublebottom=patternDao.getDoubleBottom(patternId);
+                data.add(doublebottom.getFirstMinPrice());
+                data.add(doublebottom.getFirstMaxPrice());
+                data.add(doublebottom.getSecondMinPrice());
+                data.add(doublebottom.getBreakPointPrice());
+                break;
+            case "trippletop":
+                TrippleTop trippletop=patternDao.getTrippleTop(patternId);
+                data.add(trippletop.getFirstMaxPrice());
+                data.add(trippletop.getFirstMinPrice());
+                data.add(trippletop.getSecondMaxPrice());
+                data.add(trippletop.getSecondMinPrice());
+                data.add(trippletop.getThirdMaxPrice());
+                data.add(trippletop.getBreakPointPrice());
                 break;
             default:System.out.println("no pattern found in switch case");
 

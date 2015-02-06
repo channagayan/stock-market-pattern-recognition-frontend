@@ -160,6 +160,7 @@
                             <div class="panel-body text-center" id="a">
 
                                 <ul class="list-group list-group-flush" id="patternList">
+                                   
                                     <c:forEach var="pattern" items="${patterns}">
                                         <li class="list-group-item liitem" onclick="javaScript:loadGraph('${pattern.id}','${pattern.name}')"><strong>${pattern.id}:</strong>
                                             <span>${pattern.stock}</span>
