@@ -26,11 +26,11 @@ $(function () {
                         getNewPattern();
 
                         var json=JSON.parse(event.data);
-                        //alert(json.num);
+                        alert(json.price);
                         setInterval(function () {
                             var x = (new Date()).getTime(), // current time
                                 y = Math.round(Math.random() * 100);
-                            z = parseInt(json.num);
+                            z = parseInt(json.price);
                             a = Math.round(Math.random() * 100);
                             b = Math.round(Math.random() * 100);
                             c = Math.round(Math.random() * 100);
