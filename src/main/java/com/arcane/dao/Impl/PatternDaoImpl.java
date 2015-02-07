@@ -213,7 +213,7 @@ public class PatternDaoImpl implements PatternDao {
 
         return trippletop.get(0);
     }
-    @Override
+        @Override
     public HeadnShoulder getHeadnShoulder(String id){
         JdbcTemplate jdbcTemplate = new JdbcTemplate(dataSource);
         String sql = "SELECT * from headnshoulder where id="+id;
@@ -236,6 +236,30 @@ public class PatternDaoImpl implements PatternDao {
         });
 
         return headnshoulder.get(0);
+    }
+    @Override
+    public HeadnShoulderBottom getHeadnShoulderBottom(String id){
+        JdbcTemplate jdbcTemplate = new JdbcTemplate(dataSource);
+        String sql = "SELECT * from headnshoulderbottom where id="+id;
+        List<HeadnShoulderBottom> headnshoulderbottom=jdbcTemplate.query(sql, new RowMapper<HeadnShoulderBottom>() {
+
+            @Override
+            public HeadnShoulderBottom mapRow(ResultSet rs, int rowNumber) throws SQLException {
+                HeadnShoulderBottom headnshoulderbottom1 = new HeadnShoulderBottom();
+
+                headnshoulderbottom1.setBreakPointPrice(rs.getDouble("breakPointPrice"));
+                headnshoulderbottom1.setFirstMinPrice(rs.getDouble("firstMinPrice"));
+                headnshoulderbottom1.setSecondMinPrice(rs.getDouble("secondMinPrice"));
+                headnshoulderbottom1.setThirdMinPrice(rs.getDouble("thirdMinPrice"));
+                headnshoulderbottom1.setFirstMaxPrice(rs.getDouble("firstMaxPrice"));
+                headnshoulderbottom1.setSecondMaxPrice(rs.getDouble("secondMaxPrice"));
+
+                return headnshoulderbottom1;
+            }
+
+        });
+
+        return headnshoulderbottom.get(0);
     }
 
 }

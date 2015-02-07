@@ -91,6 +91,15 @@ public class HomeController {
                 data.add(headnshoulder.getThirdMaxPrice());
                 data.add(headnshoulder.getBreakPointPrice());
                 break;
+            case "headnshoulderbottom":
+                HeadnShoulderBottom headnshoulderbottom=patternDao.getHeadnShoulderBottom(patternId);
+                data.add(headnshoulderbottom.getFirstMinPrice());
+                data.add(headnshoulderbottom.getFirstMaxPrice());
+                data.add(headnshoulderbottom.getSecondMinPrice());
+                data.add(headnshoulderbottom.getSecondMaxPrice());
+                data.add(headnshoulderbottom.getThirdMinPrice());
+                data.add(headnshoulderbottom.getBreakPointPrice());
+                break;
             default:System.out.println("no pattern found in switch case");
 
 
