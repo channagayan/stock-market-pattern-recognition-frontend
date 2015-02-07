@@ -26,6 +26,14 @@
     <script src="http://code.highcharts.com/modules/exporting.js" type="text/javascript"></script>
     <script src="/js/liveChartWithWebsocket.js" type="text/javascript"></script>
     <script src="/js/currentPattern.js" type="text/javascript"></script>
+    <script typ="text/javascript">
+        function test() {
+            var select = document.getElementById("company");
+            var selectedOption = select.options[select.selectedIndex];
+
+            alert(document.getElementById("company").value);
+        }
+    </script>
 
 </head>
 
@@ -106,13 +114,13 @@
                                 <div class="row">
                                     <div class="col-sm-12 col-md-6">
                                         <div class="form-group">
-                                            <select id="company"  multiple="multiple" placeholder="Company">
-                                                <option value="1">Company ABC1 Pvt Ltd</option>
-                                                <option value="2">Company ABC2 Pvt Ltd</option>
-                                                <option value="3">Company ABC3 Pvt Ltd</option>
-                                                <option value="4">Company ABC4 Pvt Ltd</option>
-                                                <option value="5">Company ABC5 Pvt Ltd</option>
-                                                <option value="6">Company ABC6 Pvt Ltd</option>
+                                            <select id="company"  multiple="multiple" placeholder="Company" >
+                                                <option value="a">Company ABC1 Pvt Ltd</option>
+                                                <option value="b">Company ABC2 Pvt Ltd</option>
+                                                <option value="c">Company ABC3 Pvt Ltd</option>
+                                                <option value="d">Company ABC4 Pvt Ltd</option>
+                                                <option value="e">Company ABC5 Pvt Ltd</option>
+                                                <option value="f">Company ABC6 Pvt Ltd</option>
                                             </select>
                                         </div>
                                     </div>
@@ -159,17 +167,18 @@
 
                             <div class="panel-body text-center" id="a">
 
-                                <ul class="list-group list-group-flush" id="patternList">
+                                <ol class="list-group list-group-flush" id="patternList" style="max-height: 25em; overflow-y: auto;">
 
                                     <c:forEach var="pattern" items="${patterns}">
-                                        <li class="list-group-item liitem" onclick="javaScript:loadGraph('${pattern.id}','${pattern.name}')"><strong>${pattern.id}:</strong>
+                                        <li class="list-group-item liitem" onclick="javaScript:loadGraph('${pattern.id}','${pattern.name}')">
+                                            <strong>${pattern.id}:</strong>
                                             <span>${pattern.stock}</span>
                                             <span class="pull-right"  >${pattern.name}</span>
 
                                         </li>
                                     </c:forEach>
 
-                                </ul>
+                                </ol>
                             </div>
 
                             <div class="panel-footer">

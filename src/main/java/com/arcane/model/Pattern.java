@@ -10,6 +10,15 @@ public class Pattern implements Serializable {
     private int id;
     private String stock;
     private String type;
+    private String timeStamp;//for sorting the list in recent pattern table
+
+    public String getTimeStamp() {
+        return timeStamp;
+    }
+
+    public void setTimeStamp(String timeStamp) {
+        this.timeStamp = timeStamp;
+    }
 
     public String getStock() {
         return stock;

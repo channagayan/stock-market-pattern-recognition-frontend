@@ -26,7 +26,9 @@ $(function () {
                         getNewPattern();
 
                         var json=JSON.parse(event.data);
-                        alert(json.price);
+
+                        var company =getSelectedCompany();
+                        if(json.stock===company){
                         setInterval(function () {
                             var x = (new Date()).getTime(), // current time
                                 y = Math.round(Math.random() * 100);
@@ -36,6 +38,9 @@ $(function () {
                             c = Math.round(Math.random() * 100);
                             series.addPoint([x, y,z,a,c], true, true);
                         }, 1000);
+                        }else{
+                        //recieved data is from other company, do nothing
+                        }
                     }
                 }
             }
@@ -68,7 +73,7 @@ $(function () {
 
         series : [{
             type: 'candlestick',
-            name : 'Random data',
+            name : 'Stock Data',
             data : (function () {
                 // generate an array of random data
                 var data = [], time = (new Date()).getTime(), i;
@@ -100,4 +105,9 @@ function getNewPattern()
             $( "#patternList" ).load( "/arcane #patternList" );
         }
     });
+}
+function getSelectedCompany(){
+    var companySelect = document.getElementById("company");
+    var company =companySelect.options[companySelect.selectedIndex].value;
+    return company;
 }

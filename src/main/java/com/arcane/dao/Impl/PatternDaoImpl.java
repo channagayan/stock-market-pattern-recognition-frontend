@@ -12,6 +12,8 @@ import javax.sql.DataSource;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 /**
@@ -20,6 +22,13 @@ import java.util.List;
 public class PatternDaoImpl implements PatternDao {
 
     private DataSource dataSource;
+    List<Pattern> list = new ArrayList<Pattern>();
+
+    Comparator<Pattern> comparator = new Comparator<Pattern>() {
+        public int compare(Pattern c1, Pattern c2) {
+            return Integer.parseInt(c2.getTimeStamp()) - Integer.parseInt(c1.getTimeStamp()); // use your logic
+        }
+    };
 
     public PatternDaoImpl(DataSource dataSource) {
         this.dataSource = dataSource;
@@ -97,6 +106,7 @@ public class PatternDaoImpl implements PatternDao {
                     Pattern pattern1 = new Pattern();
                     pattern1.setId(rs.getInt("id"));
                     pattern1.setStock(rs.getString("stock"));
+                    pattern1.setTimeStamp(rs.getString("breakPoint"));
                     //pattern1.setName(rs.getString("name"));
                     pattern1.setName(rs.getMetaData().getTableName(1));
                     return pattern1;
@@ -105,7 +115,7 @@ public class PatternDaoImpl implements PatternDao {
             });
             listPattern.addAll(templistPattern);
         }
-
+        Collections.sort(listPattern, comparator);
         return listPattern;
     }
 
@@ -203,4 +213,6 @@ public class PatternDaoImpl implements PatternDao {
 
         return trippletop.get(0);
     }
+
+
 }
