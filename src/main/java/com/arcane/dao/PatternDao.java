@@ -15,4 +15,6 @@ public interface PatternDao {
     public Doubletop getDoubletop(String id);
     public DoubleBottom getDoubleBottom(String id);
     public TrippleTop getTrippleTop(String id);
+    public HeadnShoulder getHeadnShoulder(String id);
+
 }

@@ -213,6 +213,29 @@ public class PatternDaoImpl implements PatternDao {
 
         return trippletop.get(0);
     }
+    @Override
+    public HeadnShoulder getHeadnShoulder(String id){
+        JdbcTemplate jdbcTemplate = new JdbcTemplate(dataSource);
+        String sql = "SELECT * from headnshoulder where id="+id;
+        List<HeadnShoulder> headnshoulder=jdbcTemplate.query(sql, new RowMapper<HeadnShoulder>() {
 
+            @Override
+            public HeadnShoulder mapRow(ResultSet rs, int rowNumber) throws SQLException {
+                HeadnShoulder headnshoulder1 = new HeadnShoulder();
+
+                headnshoulder1.setBreakPointPrice(rs.getDouble("breakPointPrice"));
+                headnshoulder1.setFirstMaxPrice(rs.getDouble("firstMaxPrice"));
+                headnshoulder1.setSecondMaxPrice(rs.getDouble("secondMaxPrice"));
+                headnshoulder1.setThirdMaxPrice(rs.getDouble("thirdMaxPrice"));
+                headnshoulder1.setFirstMinPrice(rs.getDouble("firstMinPrice"));
+                headnshoulder1.setSecondMinPrice(rs.getDouble("secondMinPrice"));
+
+                return headnshoulder1;
+            }
+
+        });
+
+        return headnshoulder.get(0);
+    }
 
 }
