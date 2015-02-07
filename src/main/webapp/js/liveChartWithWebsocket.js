@@ -64,7 +64,7 @@ $(function () {
         },
 
         title : {
-            text : 'Live random data'
+            text : 'Live Stock Price'
         },
 
         exporting: {
