@@ -261,5 +261,30 @@ public class PatternDaoImpl implements PatternDao {
 
         return headnshoulderbottom.get(0);
     }
+    @Override
+    public List<Pattern> getAllPatternList(String type){
+        JdbcTemplate jdbcTemplate = new JdbcTemplate(dataSource);
+        String sql="";
+        String pattern=type;
+
+            sql = "SELECT * from "+pattern;
+            List<Pattern> templistPattern = jdbcTemplate.query(sql, new RowMapper<Pattern>() {
+
+                @Override
+                public Pattern mapRow(ResultSet rs, int rowNumber) throws SQLException {
+                    Pattern pattern1 = new Pattern();
+                    pattern1.setId(rs.getInt("id"));
+                    pattern1.setStock(rs.getString("stock"));
+                    pattern1.setTimeStamp(rs.getString("breakPoint"));
+                    pattern1.setName(rs.getMetaData().getTableName(1));
+                    return pattern1;
+                }
+
+            });
+
+
+        Collections.sort(templistPattern, comparator);
+        return templistPattern;
+    }
 
 }

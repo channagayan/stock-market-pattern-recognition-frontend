@@ -17,4 +17,5 @@ public interface PatternDao {
     public TrippleTop getTrippleTop(String id);
     public HeadnShoulder getHeadnShoulder(String id);
     public HeadnShoulderBottom getHeadnShoulderBottom(String id);
+    public List<Pattern> getAllPatternList(String type);
 }

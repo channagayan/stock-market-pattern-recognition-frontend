@@ -1,9 +1,7 @@
 /**
  * Created by DELL on 11/24/2014.
  */
-function test() {
-    alert("name");
-}
+
 $(function() {
     $('#pattern').multipleSelect({
         placeholder: "Select Patterns",
@@ -17,3 +15,14 @@ $(function() {
         filter: true
     });
 });
+
+function getPatternPage(name)
+{
+
+    $.ajax({
+        url:"arcane/patternTypeList?patternName="+name,
+        success: function(data) {
+            $( "#page-wrapper" ).load( "/arcane/patternTypeList?patternName="+name );
+        }
+    });
+}

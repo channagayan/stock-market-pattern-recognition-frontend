@@ -111,3 +111,4 @@ function getSelectedCompany(){
     var company =companySelect.options[companySelect.selectedIndex].value;
     return company;
 }
+

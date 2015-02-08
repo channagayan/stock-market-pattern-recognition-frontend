@@ -38,6 +38,14 @@ public class HomeController {
         System.out.println(".........................calling db controller..................");
         return mav;
     }
+    @RequestMapping(value = "/patternTypeList",method = RequestMethod.GET)
+    public ModelAndView printPatternList(ModelMap model,@RequestParam("patternName") String patternName){
+        ModelAndView mav = new ModelAndView("pattern") ;
+        List<Pattern> patternList=patternDao.getAllPatternList(patternName);
+        mav.addObject("patterns", patternList);
+        System.out.println(".........................calling patternList controller.................."+patternName);
+        return mav;
+    }
     @RequestMapping(value = "/patternList", method = RequestMethod.GET)
     public void getPatternList(HttpServletRequest request, HttpServletResponse response) throws IOException {
         System.out.println("list controller called..............................");

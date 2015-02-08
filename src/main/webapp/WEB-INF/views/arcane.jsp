@@ -26,12 +26,10 @@
     <script src="http://code.highcharts.com/modules/exporting.js" type="text/javascript"></script>
     <script src="/js/liveChartWithWebsocket.js" type="text/javascript"></script>
     <script src="/js/currentPattern.js" type="text/javascript"></script>
+    <script src="/js/arcane.js" type="text/javascript"></script>
     <script typ="text/javascript">
         function test() {
-            var select = document.getElementById("company");
-            var selectedOption = select.options[select.selectedIndex];
-
-            alert(document.getElementById("company").value);
+            alert("helo");
         }
     </script>
 
@@ -53,15 +51,15 @@
         <div class="collapse navbar-collapse navbar-ex1-collapse">
             <ul class="nav navbar-nav side-nav">
                 <li class="active"><a href="arcane"><i class="fa fa-bullseye"></i> Dashboard</a></li>
-                <li><a href="portfolio.html"><i class="fa fa-tasks"></i> Portfolio</a></li>
-                <li><a href="blog.html"><i class="fa fa-globe"></i> Blog</a></li>
-                <li><a href="signup.html"><i class="fa fa-list-ol"></i> SignUp</a></li>
-                <li><a href="register.html"><i class="fa fa-font"></i> Register</a></li>
-                <li><a href="timeline.html"><i class="fa fa-font"></i> Timeline</a></li>
-                <li><a href="forms.html"><i class="fa fa-list-ol"></i> Forms</a></li>
-                <li><a href="typography.html"><i class="fa fa-font"></i> Typography</a></li>
+                <li><a href="javascript:getPatternPage('tripplebottom');"><i class="fa fa-tasks"></i> Tripple Bottom</a></li>
+                <li><a href="javascript:getPatternPage('trippletop');"><i class="fa fa-globe"></i> Tripple Top</a></li>
+                <li><a href="javascript:getPatternPage('headnshoulder');"><i class="fa fa-list-ol"></i> Head and Shoulder</a></li>
+                <li><a href="javascript:getPatternPage('headnshoulderbottom');"><i class="fa fa-font"></i> Head and Shoulder Bottom</a></li>
+                <li><a href="javascript:getPatternPage('doublebottom');"><i class="fa fa-font"></i> Double Bottom</a></li>
+                <li><a href="javascript:getPatternPage('doubletop');"><i class="fa fa-list-ol"></i> Double Top</a></li>
+                <%--<li><a href="typography.html"><i class="fa fa-font"></i> Typography</a></li>
                 <li><a href="bootstrap-elements.html"><i class="fa fa-list-ul"></i> Bootstrap Elements</a></li>
-                <li><a href="bootstrap-grid.html"><i class="fa fa-table"></i> Bootstrap Grid</a></li>
+                <li><a href="bootstrap-grid.html"><i class="fa fa-table"></i> Bootstrap Grid</a></li>--%>
             </ul>
             <ul class="nav navbar-nav navbar-right navbar-user">
                 <li class="dropdown messages-dropdown">
@@ -124,7 +122,7 @@
                                             </select>
                                         </div>
                                     </div>
-                                    <div class="col-sm-12 col-md-6">
+                                  <%--  <div class="col-sm-12 col-md-6">
                                         <div class="form-group">
                                             <select id="pattern" multiple="multiple" placeholder="Pattern">
                                                 <option value="1">Double - TOP</option>
@@ -141,7 +139,7 @@
                                                 <option value="12">Pending</option>
                                             </select>
                                         </div>
-                                    </div>
+                                    </div>--%>
                                 </div>
                             </div>
 
