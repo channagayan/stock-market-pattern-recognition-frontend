@@ -19,10 +19,10 @@ $(function () {<!--from w  w  w .j  ava 2 s  .  c  o m-->
             }
         },
         title: {
-            text: 'Current Pattern'
+            text: 'Selected Pattern'
         },
         series: [{
-            data: [20, 200, 100]
+            data: [200, 200, 200]
         }]
     });
 });
@@ -40,10 +40,10 @@ $(function () {<!--from w  w  w .j  ava 2 s  .  c  o m-->
             }
         },
         title: {
-            text: 'Current Pattern'
+            text: 'Selected Pattern'
         },
         series: [{
-            data: [20, 200, 100]
+            data: [200, 200, 200]
         }]
     });
 });
