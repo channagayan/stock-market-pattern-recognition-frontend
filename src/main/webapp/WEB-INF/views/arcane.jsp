@@ -80,7 +80,7 @@
                         <li><a href="#"><i class="fa fa-user"></i> Profile</a></li>
                         <li><a href="#"><i class="fa fa-gear"></i> Settings</a></li>
                         <li class="divider"></li>
-                        <li><a href="#"><i class="fa fa-power-off"></i> Log Out</a></li>
+                        <li><a href="/logout"><i class="fa fa-power-off"></i> Log Out</a></li>
                     </ul>
                 </li>
             </ul>
@@ -91,7 +91,7 @@
             <div class="panel-body alert-info">
                 <div class="row">
                     <div class="col-lg-12">
-                        <h2>Dashboard <small>Dashboard Home</small></h2>
+                       <%-- <h2>Dashboard <small>Dashboard Home</small></h2>--%>
                         <%--<div class="alert alert-success alert-dismissable">
                             <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
                             Welcome to the admin dashboard! Feel free to review all pages and modify the layout to your needs.
@@ -156,32 +156,44 @@
                                 </div>
                                 <div class="panel-body text-center">
                                     <ul class="list-group list-group-flush">
-                                        <li class="list-group-item liitem"><strong>Position:</strong>
-                                            <span class="pull-right">Pattern 1</span>
+                                        <li class="list-group-item liitem">
+                                            <strong>Brandix Lanka Limited</strong><br>
+                                            <strong>Head and Shoulder</strong><br>
+                                            <span class="pull-left">October 14, 2014</span> to
+                                            <span class="pull-right">November 14, 2014</span>
                                         </li>
-                                        <li class="list-group-item liitem"><strong>Company:</strong>
-                                            <span class="pull-right">PAttern 2</span>
+                                        <li class="list-group-item liitem">
+                                            <strong>Brandix Lanka Limited</strong><br>
+                                            <strong>Head and Shoulder</strong><br>
+                                            <span class="pull-left">October 14, 2014</span> to
+                                            <span class="pull-right">November 14, 2014</span>
                                         </li>
-                                        <li class="list-group-item liitem"><strong>Department:</strong>
-                                            <span class="pull-right">Pattern 3</span>
+                                        <li class="list-group-item liitem">
+                                            <strong>Brandix Lanka Limited</strong><br>
+                                            <strong>Head and Shoulder</strong><br>
+                                            <span class="pull-left">October 14, 2014</span> to
+                                            <span class="pull-right">November 14, 2014</span>
                                         </li>
-                                        <li class="list-group-item liitem"><strong>Project Duration:</strong>
-                                            <span class="pull-right">Pattern 4</span>
+                                        <li class="list-group-item liitem">
+                                            <strong>Brandix Lanka Limited</strong><br>
+                                            <strong>Head and Shoulder</strong><br>
+                                            <span class="pull-left">October 14, 2014</span> to
+                                            <span class="pull-right">November 14, 2014</span>
+                                        </li>
+                                        <li class="list-group-item liitem">
+                                            <strong>Brandix Lanka Limited</strong><br>
+                                            <strong>Head and Shoulder</strong><br>
+                                            <span class="pull-left">October 14, 2014</span> to
+                                            <span class="pull-right">November 14, 2014</span>
                                         </li>
                                     </ul>
-                                </div>
-
-                                <div class="panel-footer">
-                                    <div class="row">
-
-                                    </div>
                                 </div>
                             </div>
                     </div>
                 </div>
         </div>
     </div>
-    <div class="row">
+   <%-- <div class="row">
         <div class="col-lg-3">
             <div class="panel panel-default ">
                 <div class="panel-body alert-info">
@@ -234,7 +246,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div>--%>
 
 </div>
 </div>
