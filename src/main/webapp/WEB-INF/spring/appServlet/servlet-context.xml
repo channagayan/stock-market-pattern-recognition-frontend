@@ -69,6 +69,9 @@
     <beans:bean id="userDao" class="com.arcane.dao.Impl.UserDaoImpl">
         <beans:constructor-arg ref="dataSource"/>
     </beans:bean>
+    <beans:bean id="PatternDao" class="com.arcane.dao.Impl.PatternDaoImpl">
+        <beans:constructor-arg ref="dataSource"/>
+    </beans:bean>
 
 
     <task:annotation-driven />
