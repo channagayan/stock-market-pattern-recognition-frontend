@@ -22,8 +22,19 @@ $(function () {<!--from w  w  w .j  ava 2 s  .  c  o m-->
             text: 'Selected Pattern'
         },
         series: [{
-            data: [200, 200, 200]
-        }]
+            data: [
+                [1,200],
+                [2,200],
+                [3,200]]
+        },{data:[
+            [1,500],
+            [1.6,500],
+            [1.8,500],
+            [1.9,500],
+            [2,500],
+            [2.3,500],
+            [2.4,500],
+            [3,500]]}]
     });
 });
 $(function () {<!--from w  w  w .j  ava 2 s  .  c  o m-->
@@ -31,11 +42,11 @@ $(function () {<!--from w  w  w .j  ava 2 s  .  c  o m-->
 
         plotOptions: {
             series: {
-                events: {
+                //events: {
                     update: function (event) {
 
                     }
-                }
+               // }
 
             }
         },
@@ -43,8 +54,19 @@ $(function () {<!--from w  w  w .j  ava 2 s  .  c  o m-->
             text: 'Selected Pattern'
         },
         series: [{
-            data: [200, 200, 200]
-        }]
+            data: [
+                [1,200],
+                [2,200],
+                [3,200]]
+        },{data:[
+            [1,500],
+            [1.6,500],
+            [1.8,500],
+            [1.9,500],
+            [2,500],
+            [2.3,500],
+            [2.4,500],
+            [3,500]]}]
     });
 });
 function loadGraph(patternId,patternName) {
@@ -55,17 +77,19 @@ function loadSubGraph(patternId,patternName) {
 }
 function getSubPatternData(patternId,patternName){
     $.ajax({
-        url: "/arcane/patternData?patternId="+patternId+"&patternName="+patternName,
+        url: "/arcane/patternData1?patternId="+patternId+"&patternName="+patternName,
         type: "get",
         cache: false,
 
         success: function(data) {
-            //alert(data);
-            var chart = $('#SubPatternContainer').highcharts();
-            chart.series[0].update({
-                data:data
-                //data: [0.0, 6.9, 9.5, 14.5, 18.2, 100, 25.2, 0.5, 23.3, 18.3, 13.9, 0.6]
-            });
+            //var chart = $('#SubPatternContainer').highcharts();
+            //chart.series[0].update({
+                //data:data
+            //var tempdata=String(data);
+            //var d = "[{data:[[1,200],[2,200],[3,200]]}]";
+            //alert(data+d);
+            reloadSubGraph(data);
+            //});
         },
         error:function(xhr, status, error){
             alert(xhr.responseText);
@@ -74,20 +98,66 @@ function getSubPatternData(patternId,patternName){
 }
 function getPatternData(patternId,patternName){
     $.ajax({
-        url: "/arcane/patternData?patternId="+patternId+"&patternName="+patternName,
+        url: "/arcane/patternData1?patternId="+patternId+"&patternName="+patternName,
         type: "get",
         cache: false,
 
         success: function(data) {
-            //alert(data);
-            var chart = $('#patternContainer').highcharts();
-            chart.series[0].update({
-                data:data
-                //data: [0.0, 6.9, 9.5, 14.5, 18.2, 100, 25.2, 0.5, 23.3, 18.3, 13.9, 0.6]
-            });
+
+            reloadGraph(data);
         },
         error:function(xhr, status, error){
             alert(xhr.responseText);
         }
+    });
+}
+
+
+function reloadSubGraph(data){
+    $(function () {
+        $('#SubPatternContainer').highcharts({
+
+            plotOptions: {
+                series: {
+                events: {
+                    update: function (event) {
+
+                    }
+                }
+
+                 }
+            },
+            title: {
+                text: 'Selected Pattern'
+            },
+            series:[{
+                data: data[0]
+            },{data:data[1]
+            }]
+        });
+    });
+}
+function reloadGraph(data){
+    $(function () {<!--from w  w  w .j  ava 2 s  .  c  o m-->
+        $('#patternContainer').highcharts({
+
+            plotOptions: {
+                series: {
+                    events: {
+                        update: function (event) {
+
+                        }
+                    }
+
+                }
+            },
+            title: {
+                text: 'Selected Pattern'
+            },
+            series: [{
+                data: data[0]
+            },{data:data[1]
+            }]
+        });
     });
 }

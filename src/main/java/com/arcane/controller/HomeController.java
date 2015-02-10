@@ -5,6 +5,9 @@ import com.arcane.dao.Impl.UserDaoImpl;
 import com.arcane.dao.PatternDao;
 import com.arcane.dao.UserDao;
 import com.arcane.model.*;
+import com.fasterxml.jackson.databind.util.JSONPObject;
+import org.json.JSONException;
+import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -16,7 +19,9 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * Created by DELL on 11/23/2014.
@@ -66,6 +71,7 @@ public class HomeController {
                 data.add(trippleBottom.getSecondMaxPrice());
                 data.add(trippleBottom.getThirdMinPrice());
                 data.add(trippleBottom.getBreakPointPrice());
+
                 break;
             case "doubletop":
                 Doubletop doubletop=patternDao.getDoubletop(patternId);
@@ -117,5 +123,120 @@ public class HomeController {
 
         return data;
     }
+    @RequestMapping(value = "/patternData1", method = RequestMethod.GET)
+    @ResponseBody
+    public ArrayList<List<Double[]>> getPatternData1(HttpServletRequest request, HttpServletResponse response,@RequestParam("patternId") String patternId,
+                                  @RequestParam("patternName") String patternName) throws IOException {
+        ArrayList<List<Double[]>> list = new ArrayList<List<Double[]>>();
+        List<Double[]> pattern = new ArrayList<Double[]>();
+        List<Double[]> patternRange=new ArrayList<Double[]>();
+        List<Event> eventList=new ArrayList<Event>();
+        //List<Double[]> pattern=new ArrayList<Double[]>();
+        /*pattern.add(new Double[]{1.0,200.0});
+        pattern.add(new Double[]{2.0,200.0});
+        pattern.add(new Double[]{3.0,250.0});
+        list.add(pattern);*/
 
+        /*patternRange.add(new Double[]{1.0,230.0});
+        patternRange.add(new Double[]{1.5,235.0});
+        patternRange.add(new Double[]{1.7,260.0});
+        patternRange.add(new Double[]{2.0,300.0});
+        patternRange.add(new Double[]{3.0,250.0});
+        list.add(patternRange);*/
+
+
+        switch (patternName) {
+            case "tripplebottom":
+                TrippleBottom trippleBottom = patternDao.getTrippleBottom(patternId);
+                pattern.add(new Double[]{Double.parseDouble(trippleBottom.getFirstMin()), trippleBottom.getFirstMinPrice()});
+                pattern.add(new Double[]{Double.parseDouble(trippleBottom.getFirstMax()), trippleBottom.getFirstMaxPrice()});
+                pattern.add(new Double[]{Double.parseDouble(trippleBottom.getSecondMin()), trippleBottom.getSecondMinPrice()});
+                pattern.add(new Double[]{Double.parseDouble(trippleBottom.getSecondMax()), trippleBottom.getSecondMaxPrice()});
+                pattern.add(new Double[]{Double.parseDouble(trippleBottom.getThirdMin()), trippleBottom.getThirdMinPrice()});
+                pattern.add(new Double[]{Double.parseDouble(trippleBottom.getBreakPoint()), trippleBottom.getBreakPointPrice()});
+                list.add(pattern);
+
+                eventList=patternDao.getPatternRealData(trippleBottom.getFirstMin(),trippleBottom.getBreakPoint(),trippleBottom.getStock());
+                for(Event event:eventList){
+                    patternRange.add(new Double[]{Double.parseDouble(event.getDate()), event.getPrice()});
+                }
+                list.add(patternRange);
+                break;
+            case "doubletop":
+                Doubletop doubletop=patternDao.getDoubletop(patternId);
+                pattern.add(new Double[]{Double.parseDouble(doubletop.getFirstMax()),doubletop.getFirstMaxPrice()});
+                pattern.add(new Double[]{Double.parseDouble(doubletop.getFirstMin()),doubletop.getFirstMinPrice()});
+                pattern.add(new Double[]{Double.parseDouble(doubletop.getSecondMax()),doubletop.getSecondMaxPrice()});
+                pattern.add(new Double[]{Double.parseDouble(doubletop.getBreakPoint()),doubletop.getBreakPointPrice()});
+                list.add(pattern);
+                eventList=patternDao.getPatternRealData(doubletop.getFirstMax(),doubletop.getBreakPoint(),doubletop.getStock());
+                for(Event event:eventList){
+                    patternRange.add(new Double[]{Double.parseDouble(event.getDate()), event.getPrice()});
+                }
+                list.add(patternRange);
+                break;
+            case "doublebottom":
+                DoubleBottom doublebottom=patternDao.getDoubleBottom(patternId);
+                pattern.add(new Double[]{Double.parseDouble(doublebottom.getFirstMin()),doublebottom.getFirstMinPrice()});
+                pattern.add(new Double[]{Double.parseDouble(doublebottom.getFirstMax()),doublebottom.getFirstMaxPrice()});
+                pattern.add(new Double[]{Double.parseDouble(doublebottom.getSecondMin()),doublebottom.getSecondMinPrice()});
+                pattern.add(new Double[]{Double.parseDouble(doublebottom.getBreakPoint()),doublebottom.getBreakPointPrice()});
+                list.add(pattern);
+                eventList=patternDao.getPatternRealData(doublebottom.getFirstMin(),doublebottom.getBreakPoint(),doublebottom.getStock());
+                for(Event event:eventList){
+                    patternRange.add(new Double[]{Double.parseDouble(event.getDate()), event.getPrice()});
+                }
+                list.add(patternRange);
+                break;
+            case "trippletop":
+                TrippleTop trippletop=patternDao.getTrippleTop(patternId);
+                pattern.add(new Double[]{Double.parseDouble(trippletop.getFirstMax()),trippletop.getFirstMaxPrice()});
+                pattern.add(new Double[]{Double.parseDouble(trippletop.getFirstMin()),trippletop.getFirstMinPrice()});
+                pattern.add(new Double[]{Double.parseDouble(trippletop.getSecondMax()),trippletop.getSecondMaxPrice()});
+                pattern.add(new Double[]{Double.parseDouble(trippletop.getSecondMin()),trippletop.getSecondMinPrice()});
+                pattern.add(new Double[]{Double.parseDouble(trippletop.getThirdMax()),trippletop.getThirdMaxPrice()});
+                pattern.add(new Double[]{Double.parseDouble(trippletop.getBreakPoint()),trippletop.getBreakPointPrice()});
+                list.add(pattern);
+                eventList=patternDao.getPatternRealData(trippletop.getFirstMax(),trippletop.getBreakPoint(),trippletop.getStock());
+                for(Event event:eventList){
+                    patternRange.add(new Double[]{Double.parseDouble(event.getDate()), event.getPrice()});
+                }
+                list.add(patternRange);
+                break;
+            case "headnshoulder":
+                HeadnShoulder headnshoulder=patternDao.getHeadnShoulder(patternId);
+                pattern.add(new Double[]{Double.parseDouble(headnshoulder.getFirstMax()),headnshoulder.getFirstMaxPrice()});
+                pattern.add(new Double[]{Double.parseDouble(headnshoulder.getFirstMin()),headnshoulder.getFirstMinPrice()});
+                pattern.add(new Double[]{Double.parseDouble(headnshoulder.getSecondMax()),headnshoulder.getSecondMaxPrice()});
+                pattern.add(new Double[]{Double.parseDouble(headnshoulder.getSecondMin()),headnshoulder.getSecondMinPrice()});
+                pattern.add(new Double[]{Double.parseDouble(headnshoulder.getThirdMax()),headnshoulder.getThirdMaxPrice()});
+                pattern.add(new Double[]{Double.parseDouble(headnshoulder.getBreakPoint()),headnshoulder.getBreakPointPrice()});
+                list.add(pattern);
+                eventList=patternDao.getPatternRealData(headnshoulder.getFirstMax(),headnshoulder.getBreakPoint(),headnshoulder.getStock());
+                for(Event event:eventList){
+                    patternRange.add(new Double[]{Double.parseDouble(event.getDate()), event.getPrice()});
+                }
+                list.add(patternRange);
+                break;
+            case "headnshoulderbottom":
+                HeadnShoulderBottom headnshoulderbottom=patternDao.getHeadnShoulderBottom(patternId);
+                pattern.add(new Double[]{Double.parseDouble(headnshoulderbottom.getFirstMin()),headnshoulderbottom.getFirstMinPrice()});
+                pattern.add(new Double[]{Double.parseDouble(headnshoulderbottom.getFirstMax()),headnshoulderbottom.getFirstMaxPrice()});
+                pattern.add(new Double[]{Double.parseDouble(headnshoulderbottom.getSecondMin()),headnshoulderbottom.getSecondMinPrice()});
+                pattern.add(new Double[]{Double.parseDouble(headnshoulderbottom.getSecondMax()),headnshoulderbottom.getSecondMaxPrice()});
+                pattern.add(new Double[]{Double.parseDouble(headnshoulderbottom.getThirdMin()),headnshoulderbottom.getThirdMinPrice()});
+                pattern.add(new Double[]{Double.parseDouble(headnshoulderbottom.getBreakPoint()),headnshoulderbottom.getBreakPointPrice()});
+                list.add(pattern);
+                eventList=patternDao.getPatternRealData(headnshoulderbottom.getFirstMin(),headnshoulderbottom.getBreakPoint(),headnshoulderbottom.getStock());
+                for(Event event:eventList){
+                    patternRange.add(new Double[]{Double.parseDouble(event.getDate()), event.getPrice()});
+                }
+                list.add(patternRange);
+                break;
+            default:
+                System.out.println("no pattern found in switch case");
+
+        }
+        return list;
+    }
 }

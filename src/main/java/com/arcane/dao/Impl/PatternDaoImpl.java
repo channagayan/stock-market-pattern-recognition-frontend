@@ -134,6 +134,12 @@ public class PatternDaoImpl implements PatternDao {
                 trippleBottom1.setBreakPointPrice(rs.getDouble("breakPointPrice"));
                 trippleBottom1.setFirstMaxPrice(rs.getDouble("firstMaxPrice"));
                 trippleBottom1.setSecondMaxPrice(rs.getDouble("secondMaxPrice"));
+                trippleBottom1.setFirstMin(rs.getString("firstMin"));
+                trippleBottom1.setSecondMin(rs.getString("secondMin"));
+                trippleBottom1.setThirdMin(rs.getString("thirdMin"));
+                trippleBottom1.setBreakPoint(rs.getString("breakPoint"));
+                trippleBottom1.setFirstMax(rs.getString("firstMax"));
+                trippleBottom1.setSecondMax(rs.getString("secondMax"));
                 //trippleBottom1.setStock("stock");
                 return trippleBottom1;
             }
@@ -157,6 +163,10 @@ public class PatternDaoImpl implements PatternDao {
                 doubletop1.setFirstMaxPrice(rs.getDouble("firstMaxPrice"));
                 doubletop1.setFirstMinPrice(rs.getDouble("firstMinPrice"));
                 doubletop1.setSecondMaxPrice(rs.getDouble("secondMaxPrice"));
+                doubletop1.setBreakPoint(rs.getString("breakPoint"));
+                doubletop1.setFirstMax(rs.getString("firstMax"));
+                doubletop1.setFirstMin(rs.getString("firstMin"));
+                doubletop1.setSecondMax(rs.getString("secondMax"));
 
                 return doubletop1;
             }
@@ -180,6 +190,10 @@ public class PatternDaoImpl implements PatternDao {
                 doublebottom1.setFirstMaxPrice(rs.getDouble("firstMaxPrice"));
                 doublebottom1.setFirstMinPrice(rs.getDouble("firstMinPrice"));
                 doublebottom1.setSecondMinPrice(rs.getDouble("secondMinPrice"));
+                doublebottom1.setBreakPoint(rs.getString("breakPoint"));
+                doublebottom1.setFirstMax(rs.getString("firstMax"));
+                doublebottom1.setFirstMin(rs.getString("firstMin"));
+                doublebottom1.setSecondMin(rs.getString("secondMin"));
 
                 return doublebottom1;
             }
@@ -205,6 +219,12 @@ public class PatternDaoImpl implements PatternDao {
                 trippletop1.setThirdMaxPrice(rs.getDouble("thirdMaxPrice"));
                 trippletop1.setFirstMinPrice(rs.getDouble("firstMinPrice"));
                 trippletop1.setSecondMinPrice(rs.getDouble("secondMinPrice"));
+                trippletop1.setBreakPoint(rs.getString("breakPoint"));
+                trippletop1.setFirstMax(rs.getString("firstMax"));
+                trippletop1.setSecondMax(rs.getString("secondMax"));
+                trippletop1.setThirdMax(rs.getString("thirdMax"));
+                trippletop1.setFirstMin(rs.getString("firstMin"));
+                trippletop1.setSecondMin(rs.getString("secondMin"));
 
                 return trippletop1;
             }
@@ -229,6 +249,12 @@ public class PatternDaoImpl implements PatternDao {
                 headnshoulder1.setThirdMaxPrice(rs.getDouble("thirdMaxPrice"));
                 headnshoulder1.setFirstMinPrice(rs.getDouble("firstMinPrice"));
                 headnshoulder1.setSecondMinPrice(rs.getDouble("secondMinPrice"));
+                headnshoulder1.setBreakPoint(rs.getString("breakPoint"));
+                headnshoulder1.setFirstMax(rs.getString("firstMax"));
+                headnshoulder1.setSecondMax(rs.getString("secondMax"));
+                headnshoulder1.setThirdMax(rs.getString("thirdMax"));
+                headnshoulder1.setFirstMin(rs.getString("firstMin"));
+                headnshoulder1.setSecondMin(rs.getString("secondMin"));
 
                 return headnshoulder1;
             }
@@ -253,6 +279,12 @@ public class PatternDaoImpl implements PatternDao {
                 headnshoulderbottom1.setThirdMinPrice(rs.getDouble("thirdMinPrice"));
                 headnshoulderbottom1.setFirstMaxPrice(rs.getDouble("firstMaxPrice"));
                 headnshoulderbottom1.setSecondMaxPrice(rs.getDouble("secondMaxPrice"));
+                headnshoulderbottom1.setBreakPoint(rs.getString("breakPoint"));
+                headnshoulderbottom1.setFirstMin(rs.getString("firstMin"));
+                headnshoulderbottom1.setSecondMin(rs.getString("secondMin"));
+                headnshoulderbottom1.setThirdMin(rs.getString("thirdMin"));
+                headnshoulderbottom1.setFirstMax(rs.getString("firstMax"));
+                headnshoulderbottom1.setSecondMax(rs.getString("secondMax"));
 
                 return headnshoulderbottom1;
             }
@@ -285,6 +317,29 @@ public class PatternDaoImpl implements PatternDao {
 
         Collections.sort(templistPattern, comparator);
         return templistPattern;
+    }
+    @Override
+    public List<Event> getPatternRealData(String start,String end,String stock){
+        List<Event> events=new ArrayList<Event>();
+        JdbcTemplate jdbcTemplate = new JdbcTemplate(dataSource);
+        String sql="";
+
+        sql = "SELECT * from livestream where CONVERT(date, SIGNED INTEGER) BETWEEN "+start+" AND "+end;
+        List<Event> tempEventList = jdbcTemplate.query(sql, new RowMapper<Event>() {
+
+            @Override
+            public Event mapRow(ResultSet rs, int rowNumber) throws SQLException {
+                Event event = new Event();
+                event.setId(rs.getString("id"));
+                event.setStock(rs.getString("stock"));
+                event.setDate(rs.getString("date"));
+                event.setPrice(rs.getDouble("price"));
+                return event;
+            }
+
+        });
+
+        return tempEventList;
     }
 
 }

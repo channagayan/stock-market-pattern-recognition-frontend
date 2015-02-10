@@ -18,4 +18,5 @@ public interface PatternDao {
     public HeadnShoulder getHeadnShoulder(String id);
     public HeadnShoulderBottom getHeadnShoulderBottom(String id);
     public List<Pattern> getAllPatternList(String type);
+    public List<Event> getPatternRealData(String start,String end,String stock);
 }
