@@ -21,10 +21,12 @@
 
                     <c:forEach var="pattern" items="${patterns}">
                         <li class="list-group-item liitem" onclick="javaScript:loadSubGraph('${pattern.id}','${pattern.name}')">
-                            <strong>${pattern.timeStamp}:</strong>
-                            <strong>${pattern.id}:</strong>
-                            <span>${pattern.stock}</span>
-                            <span class="pull-right"  >${pattern.name}</span>
+                            <strong  class="pull-left">${pattern.timeStamp}:</strong>
+                            <strong  style="visibility: hidden;">${pattern.id}:</strong>
+                            <span style="visibility: hidden;">${pattern.stock}</span>
+                            <span>${pattern.stockName}</span>
+                            <span style="visibility: hidden;">${pattern.name}</span>
+                            <span class="pull-right"  >${pattern.patternEnum}</span>
 
                         </li>
                     </c:forEach>

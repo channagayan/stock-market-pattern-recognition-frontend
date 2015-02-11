@@ -114,7 +114,9 @@
                                             </select>
                                         </div>
                                     </div>
-                                    <div class="col-sm-12 col-md-6">
+                                    <div class="col-sm-12 col-md-3">
+                                    </div>
+                                    <div class="col-sm-12 col-md-3">
                                         <input id="date" class="col-sm-12 col-md-12" type="text" name="lname" disabled>
                                     </div>
                                     <%--  <div class="col-sm-12 col-md-6">
@@ -164,10 +166,11 @@
 
                                     <c:forEach var="pattern" items="${patterns}">
                                         <li class="list-group-item liitem" onclick="javaScript:loadGraph('${pattern.id}','${pattern.name}')">
-                                            <strong>${pattern.id}:</strong>
-                                            <span>${pattern.stock}</span>
-                                            <span class="pull-right"  >${pattern.name}</span>
-
+                                            <strong  style="visibility: hidden;">${pattern.id}:</strong>
+                                            <span style="visibility: hidden;">${pattern.stock}</span>
+                                            <span class="pull-left">${pattern.stockName}</span>
+                                            <span style="visibility: hidden;">${pattern.name}</span>
+                                            <span class="pull-right"  >${pattern.patternEnum}</span>
                                         </li>
                                     </c:forEach>
 

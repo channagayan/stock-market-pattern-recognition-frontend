@@ -1,5 +1,7 @@
 package com.arcane.model;
 
+import com.arcane.constants.CommonConstants;
+
 import java.io.Serializable;
 
 /**
@@ -7,8 +9,10 @@ import java.io.Serializable;
  */
 public class Pattern implements Serializable {
     private String name;
+    private String patternEnum;
     private int id;
     private String stock;
+    private String stockName;
     private String type;
     private String timeStamp;//for sorting the list in recent pattern table
 
@@ -26,6 +30,7 @@ public class Pattern implements Serializable {
 
     public void setStock(String company) {
         this.stock = company;
+        this.stockName = CommonConstants.Company.getCompanyMap().get(company);
     }
 
     public String getType() {
@@ -48,7 +53,24 @@ public class Pattern implements Serializable {
         return name;
     }
 
+    public String getPatternEnum() {
+        return patternEnum;
+    }
+
+    public void setPatternEnum(String patternEnum) {
+        this.patternEnum = patternEnum;
+    }
+
+    public String getStockName() {
+        return stockName;
+    }
+
+    public void setStockName(String stockName) {
+        this.stockName = stockName;
+    }
+
     public void setName(String name) {
         this.name = name;
+        this.patternEnum = CommonConstants.Pattern.getPatternMap().get(name);
     }
 }

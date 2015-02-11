@@ -6,7 +6,7 @@
 
 
 $(function () {<!--from w  w  w .j  ava 2 s  .  c  o m-->
-    $("#date").val(moment().format('MMMM Do YYYY, h:mm:ss a'));
+    $("#date").val(moment().format('MMMM Do YYYY'));
     $('#patternContainer').highcharts({
 
         plotOptions: {
