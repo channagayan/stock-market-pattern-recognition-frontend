@@ -1,9 +1,24 @@
 <%--
-  Created by IntelliJ IDEA.
-  User: Rashmi
+  /*
+ * Licensed to the Apache Software Foundation (ASF) under one or more
+ * contributor license agreements.  See the NOTICE file distributed with
+ * this work for additional information regarding copyright ownership.
+ * The ASF licenses this file to You under the Apache License, Version 2.0
+ * (the "License"); you may not use this file except in compliance with
+ * the License.  You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
   Date: 11/13/2014
   Time: 6:21 PM
-  To change this template use File | Settings | File Templates.
+  ARCANE Dashboard
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
@@ -119,24 +134,6 @@
                                     <div class="col-sm-12 col-md-3">
                                         <input id="date" class="col-sm-12 col-md-12" type="text" name="lname" disabled>
                                     </div>
-                                    <%--  <div class="col-sm-12 col-md-6">
-                                          <div class="form-group">
-                                              <select id="pattern" multiple="multiple" placeholder="Pattern">
-                                                  <option value="1">Double - TOP</option>
-                                                  <option value="2">Double - BOTTOM</option>
-                                                  <option value="3">Head and Shoulder - TOP</option>
-                                                  <option value="4">Head and Shoulder - BOTTOM</option>
-                                                  <option value="5">Triple -  TOP</option>
-                                                  <option value="6">Triple - BOTTOM</option>
-                                                  <option value="7">Pending</option>
-                                                  <option value="8">Pending</option>
-                                                  <option value="9">Pending</option>
-                                                  <option value="10">Pending</option>
-                                                  <option value="11">Pending</option>
-                                                  <option value="12">Pending</option>
-                                              </select>
-                                          </div>
-                                      </div>--%>
                                 </div>
                             </div>
 
@@ -169,8 +166,8 @@
                                             <strong  style="visibility: hidden;">${pattern.id}:</strong>
                                             <span style="visibility: hidden;">${pattern.stock}</span>
                                             <span class="pull-left">${pattern.stockName}</span>
-                                            <span style="visibility: hidden;">${pattern.name}</span>
                                             <span class="pull-right"  >${pattern.patternEnum}</span>
+                                            <span style="visibility: hidden;">${pattern.name}</span>
                                         </li>
                                     </c:forEach>
 
@@ -219,7 +216,6 @@
     <script type="text/javascript" src="/js/jquery-1.10.2.min.js"></script>
     <script type="text/javascript" src="/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="/js/jquery.multiple.select.js"></script>
-    <%--<script src="http://code.highcharts.com/highcharts.js" type="text/javascript"></script>--%>
     <script src="http://code.highcharts.com/stock/highstock.js"></script>
     <script src="http://code.highcharts.com/modules/exporting.js" type="text/javascript"></script>
     <script src="/js/liveChartWithWebsocket.js" type="text/javascript"></script>

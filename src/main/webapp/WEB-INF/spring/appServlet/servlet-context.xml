@@ -34,14 +34,6 @@
 
     <!-- Create DataSource Bean -->
 
-<!--    <beans:bean id="dbDataSource" class="org.springframework.jndi.JndiObjectFactoryBean">
-        <beans:property name="jndiName" value="java:comp/env/jdbc/arcanedb"/>
-       &lt;!&ndash; <beans:property name="username" value="root"/>
-        <beans:property name="password" value="pwd"/>&ndash;&gt;
-    </beans:bean>
-    <beans:bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
-        <beans:property name="dataSource"><beans:ref bean="dbDataSource" /></beans:property>
-    </beans:bean>-->
     <beans:bean id="dataSource" class="org.springframework.jndi.JndiObjectFactoryBean">
         <beans:property name="jndiName" value="java:comp/env/jdbc/arcanedb"/>
     </beans:bean>
