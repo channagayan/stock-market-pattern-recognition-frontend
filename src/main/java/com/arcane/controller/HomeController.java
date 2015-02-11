@@ -6,8 +6,6 @@ import com.arcane.dao.PatternDao;
 import com.arcane.dao.UserDao;
 import com.arcane.model.*;
 import com.fasterxml.jackson.databind.util.JSONPObject;
-import org.json.JSONException;
-import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;

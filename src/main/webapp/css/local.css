@@ -3,8 +3,6 @@ body {
   margin-top: 70px;
 }
 
-
-
 #wrapper {
   padding-left: 0;
 }
@@ -17,6 +15,13 @@ body {
   border-color: #bce8f1;
   color: #3a87ad;
 }
+
+#date{
+    color: gray;
+    background-color: white;
+    text-align: right;
+}
+
 #alerts .panel-heading{
     color: #ffffff;
     background-color: #022f5a;

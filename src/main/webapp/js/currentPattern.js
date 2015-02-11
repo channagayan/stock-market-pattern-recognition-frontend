@@ -6,6 +6,7 @@
 
 
 $(function () {<!--from w  w  w .j  ava 2 s  .  c  o m-->
+    $("#date").val(moment().format('MMMM Do YYYY, h:mm:ss a'));
     $('#patternContainer').highcharts({
 
         plotOptions: {
@@ -159,5 +160,16 @@ function reloadGraph(data){
             },{data:data[1]
             }]
         });
+    });
+}
+function getPatternPage(name)
+{
+
+    $.ajax({
+        url:"arcane/patternTypeList?patternName="+name,
+        success: function(data) {
+            $( "#page-wrapper" ).load( "/arcane/patternTypeList?patternName="+name );
+           // $("#date").val(moment().format('MMMM Do YYYY, h:mm:ss a'));
+        }
     });
 }

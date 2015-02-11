@@ -18,16 +18,8 @@
     <link rel="stylesheet" type="text/css" href="/css/font-awesome.min.css" />
     <link rel="stylesheet" type="text/css" href="/css/local.css" />
     <link rel="stylesheet" type="text/css" href="/css/multiple-select.css" />
-    <script type="text/javascript" src="/js/jquery-1.10.2.min.js"></script>
-    <script type="text/javascript" src="/js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="/js/jquery.multiple.select.js"></script>
-    <%--<script src="http://code.highcharts.com/highcharts.js" type="text/javascript"></script>--%>
-    <script src="http://code.highcharts.com/stock/highstock.js"></script>
-    <script src="http://code.highcharts.com/modules/exporting.js" type="text/javascript"></script>
-    <script src="/js/liveChartWithWebsocket.js" type="text/javascript"></script>
-    <script src="/js/currentPattern.js" type="text/javascript"></script>
-    <script src="/js/arcane.js" type="text/javascript"></script>
-    <script typ="text/javascript">
+
+    <script type="text/javascript">
         function test() {
             alert("helo");
         }
@@ -112,7 +104,7 @@
                                 <div class="row">
                                     <div class="col-sm-12 col-md-6">
                                         <div class="form-group">
-                                            <select id="company"  multiple="multiple" placeholder="Company" >
+                                            <select id="company" placeholder="Company" >
                                                 <option value="a">Company ABC1 Pvt Ltd</option>
                                                 <option value="b">Company ABC2 Pvt Ltd</option>
                                                 <option value="c">Company ABC3 Pvt Ltd</option>
@@ -122,24 +114,27 @@
                                             </select>
                                         </div>
                                     </div>
-                                  <%--  <div class="col-sm-12 col-md-6">
-                                        <div class="form-group">
-                                            <select id="pattern" multiple="multiple" placeholder="Pattern">
-                                                <option value="1">Double - TOP</option>
-                                                <option value="2">Double - BOTTOM</option>
-                                                <option value="3">Head and Shoulder - TOP</option>
-                                                <option value="4">Head and Shoulder - BOTTOM</option>
-                                                <option value="5">Triple -  TOP</option>
-                                                <option value="6">Triple - BOTTOM</option>
-                                                <option value="7">Pending</option>
-                                                <option value="8">Pending</option>
-                                                <option value="9">Pending</option>
-                                                <option value="10">Pending</option>
-                                                <option value="11">Pending</option>
-                                                <option value="12">Pending</option>
-                                            </select>
-                                        </div>
-                                    </div>--%>
+                                    <div class="col-sm-12 col-md-6">
+                                        <input id="date" class="col-sm-12 col-md-12" type="text" name="lname" disabled>
+                                    </div>
+                                    <%--  <div class="col-sm-12 col-md-6">
+                                          <div class="form-group">
+                                              <select id="pattern" multiple="multiple" placeholder="Pattern">
+                                                  <option value="1">Double - TOP</option>
+                                                  <option value="2">Double - BOTTOM</option>
+                                                  <option value="3">Head and Shoulder - TOP</option>
+                                                  <option value="4">Head and Shoulder - BOTTOM</option>
+                                                  <option value="5">Triple -  TOP</option>
+                                                  <option value="6">Triple - BOTTOM</option>
+                                                  <option value="7">Pending</option>
+                                                  <option value="8">Pending</option>
+                                                  <option value="9">Pending</option>
+                                                  <option value="10">Pending</option>
+                                                  <option value="11">Pending</option>
+                                                  <option value="12">Pending</option>
+                                              </select>
+                                          </div>
+                                      </div>--%>
                                 </div>
                             </div>
 
@@ -206,12 +201,27 @@
                         </div>
                     </div>
                 </div>
+            </div>
         </div>
-    </div>
 
+    </div>
 </div>
+
 </div>
 <div id="active">yes</div>
 <script type="text/javascript" src="/js/arcane.js"></script>
+
 </body>
+<footer>
+    <script type="text/javascript" src="/js/jquery-1.10.2.min.js"></script>
+    <script type="text/javascript" src="/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="/js/jquery.multiple.select.js"></script>
+    <%--<script src="http://code.highcharts.com/highcharts.js" type="text/javascript"></script>--%>
+    <script src="http://code.highcharts.com/stock/highstock.js"></script>
+    <script src="http://code.highcharts.com/modules/exporting.js" type="text/javascript"></script>
+    <script src="/js/liveChartWithWebsocket.js" type="text/javascript"></script>
+    <script src="/js/moment.js" type="text/javascript"></script>
+    <script src="/js/currentPattern.js" type="text/javascript"></script>
+    <script src="/js/arcane.js" type="text/javascript"></script>
+</footer>
 </html>
