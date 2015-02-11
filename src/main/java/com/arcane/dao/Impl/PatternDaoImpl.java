@@ -107,7 +107,6 @@ public class PatternDaoImpl implements PatternDao {
                     pattern1.setId(rs.getInt("id"));
                     pattern1.setStock(rs.getString("stock"));
                     pattern1.setTimeStamp(rs.getString("breakPoint"));
-                    //pattern1.setName(rs.getString("name"));
                     pattern1.setName(rs.getMetaData().getTableName(1));
                     return pattern1;
                 }
@@ -324,7 +323,7 @@ public class PatternDaoImpl implements PatternDao {
         JdbcTemplate jdbcTemplate = new JdbcTemplate(dataSource);
         String sql="";
 
-        sql = "SELECT * from livestream where CONVERT(date, SIGNED INTEGER) BETWEEN "+start+" AND "+end;
+        sql = "SELECT * from livestream where CONVERT(date, SIGNED INTEGER) BETWEEN "+start+" AND "+end+" ORDER BY CONVERT(date, SIGNED INTEGER)";
         List<Event> tempEventList = jdbcTemplate.query(sql, new RowMapper<Event>() {
 
             @Override

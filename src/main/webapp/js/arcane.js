@@ -20,3 +20,14 @@ $(function() {
 });
 
 
+function getPatternPage(name)
+{
+    document.getElementById("active").innerHTML = "whatever";
+    $.ajax({
+        url:"arcane/patternTypeList?patternName="+name,
+        success: function(data) {
+            $( "#page-wrapper" ).load( "/arcane/patternTypeList?patternName="+name );
+        }
+    });
+}
+
