@@ -37,7 +37,6 @@ public class HomeController {
     @RequestMapping(method = RequestMethod.GET)
     public ModelAndView printWelcome(ModelMap model){
         ModelAndView mav = new ModelAndView("arcane") ;
-       //List<Pattern> patternList=patternDao.patternList();
         List<Pattern> patternList=patternDao.getAllPatternList();
         mav.addObject("patterns", patternList);
         System.out.println(".........................calling db controller..................");
@@ -131,18 +130,7 @@ public class HomeController {
         List<Double[]> pattern = new ArrayList<Double[]>();
         List<Double[]> patternRange=new ArrayList<Double[]>();
         List<Event> eventList=new ArrayList<Event>();
-        //List<Double[]> pattern=new ArrayList<Double[]>();
-        /*pattern.add(new Double[]{1.0,200.0});
-        pattern.add(new Double[]{2.0,200.0});
-        pattern.add(new Double[]{3.0,250.0});
-        list.add(pattern);*/
 
-        /*patternRange.add(new Double[]{1.0,230.0});
-        patternRange.add(new Double[]{1.5,235.0});
-        patternRange.add(new Double[]{1.7,260.0});
-        patternRange.add(new Double[]{2.0,300.0});
-        patternRange.add(new Double[]{3.0,250.0});
-        list.add(patternRange);*/
 
 
         switch (patternName) {

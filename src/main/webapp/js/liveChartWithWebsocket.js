@@ -23,7 +23,10 @@ $(function () {
                     var series = this.series[0];
                     var connection = new WebSocket('ws://localhost:8091');
                     connection.onmessage = function (event) {
+                        var active=$("#active").text();
+                        if(active==="yes"){
                         getNewPattern();
+                        }
 
                         var json=JSON.parse(event.data);
 
@@ -31,13 +34,13 @@ $(function () {
                         if(json.stock===company){
                         setInterval(function () {
                             var x = (new Date()).getTime(), // current time
-                                y = Math.round(Math.random() * 100);
-                            z = parseInt(json.price);
-                            a = Math.round(Math.random() * 100);
-                            b = Math.round(Math.random() * 100);
-                            c = Math.round(Math.random() * 100);
+                                y = parseInt(json.open);
+                            z = parseInt(json.high);
+                            a = parseInt(json.low);
+                            b = parseInt("4");
+                            c = parseInt(json.close);
                             series.addPoint([x, y,z,a,c], true, true);
-                        }, 1000);
+                        }, 10000);
                         }else{
                         //recieved data is from other company, do nothing
                         }
@@ -99,6 +102,7 @@ $(function () {
 
 function getNewPattern()
 {
+
     $.ajax({
         success: function(data) {
             $("#patternList").empty();

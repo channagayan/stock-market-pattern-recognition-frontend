@@ -211,6 +211,7 @@
 
 </div>
 </div>
+<div id="active">yes</div>
 <script type="text/javascript" src="/js/arcane.js"></script>
 </body>
 </html>
