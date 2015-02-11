@@ -29,6 +29,8 @@
 <head lang="en">
     <meta charset="UTF-8">
     <title>Pattern</title>
+    <link rel="stylesheet" type="text/css" href="/css/local.css" />
+    <link rel="stylesheet" type="text/css" href="/css/style.css" />
 </head>
 <body>
 <div class="row">
@@ -59,7 +61,6 @@
 
             <div class="panel-footer">
                 <div class="row">
-
                 </div>
             </div>
         </div>

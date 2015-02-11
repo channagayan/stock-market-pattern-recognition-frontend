@@ -34,18 +34,19 @@ import org.springframework.web.bind.annotation.RequestMethod;
 public class LoginController {
     private static final Logger LOG = LoggerFactory.getLogger(LoginController.class);
 
-
     @Autowired
     private UserDao userDao;
 
     @RequestMapping(value = "/login", method = RequestMethod.GET)
     public String login() {
+        //return login page
         LOG.info("Login page loaded");
         return "login";
     }
 
     @RequestMapping(value = "/admin/loginfailed", method = RequestMethod.GET)
     public String loginError(ModelMap model) {
+        //return login page
         LOG.info("username or password do not match error occured");
         model.addAttribute("error", "true");
         return "admin/login";
@@ -53,7 +54,7 @@ public class LoginController {
 
     @RequestMapping(value = "/loginfailed", method = RequestMethod.GET)
     public String loginerror(ModelMap model) {
-
+        //return login page
         model.addAttribute("error", "true");
         return "login";
 
@@ -61,7 +62,7 @@ public class LoginController {
 
     @RequestMapping(value = "/logout", method = RequestMethod.GET)
     public String logout(ModelMap model) {
-
+        //return login page
         return "login";
 
     }

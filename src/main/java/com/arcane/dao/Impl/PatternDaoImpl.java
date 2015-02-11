@@ -42,6 +42,7 @@ public class PatternDaoImpl implements PatternDao {
 
     Comparator<Pattern> comparator = new Comparator<Pattern>() {
         public int compare(Pattern c1, Pattern c2) {
+            //compare two timestamps and sort patterns
             return Integer.parseInt(c2.getTimeStamp()) - Integer.parseInt(c1.getTimeStamp()); // use your logic
         }
     };
@@ -51,6 +52,7 @@ public class PatternDaoImpl implements PatternDao {
     }
     @Override
     public List<Pattern> patternList(){
+        //return all available (occured) patterns
         JdbcTemplate jdbcTemplate = new JdbcTemplate(dataSource);
         String sql = "SELECT * from pattern";
         List<Pattern> listPattern = jdbcTemplate.query(sql, new RowMapper<Pattern>() {
@@ -69,6 +71,7 @@ public class PatternDaoImpl implements PatternDao {
 
     @Override
     public List<TrippleBottom> getTrippleBottomList(){
+        //return all triple bottom patterns
         JdbcTemplate jdbcTemplate = new JdbcTemplate(dataSource);
         String sql = "SELECT * from tripplebottom";
         List<TrippleBottom> listPattern = jdbcTemplate.query(sql,new RowMapper<TrippleBottom>() {
@@ -97,6 +100,7 @@ public class PatternDaoImpl implements PatternDao {
         return listPattern;
     }
     public List<String> getPatternNames(){
+        //return all pattern names
         JdbcTemplate jdbcTemplate = new JdbcTemplate(dataSource);
         String sql = "SELECT * from pattern";
         List<String> patternNameList  = jdbcTemplate.query(sql, new RowMapper() {
@@ -109,6 +113,7 @@ public class PatternDaoImpl implements PatternDao {
     }
     @Override
     public List<Pattern> getAllPatternList(){
+        //select all patterns from specified category
         JdbcTemplate jdbcTemplate = new JdbcTemplate(dataSource);
         List<String> patternNameList=getPatternNames();
         String sql="";
@@ -136,6 +141,7 @@ public class PatternDaoImpl implements PatternDao {
 
     @Override
     public TrippleBottom getTrippleBottom(String id){
+        //return requested triple bottom pattern
         JdbcTemplate jdbcTemplate = new JdbcTemplate(dataSource);
         String sql = "SELECT * from tripplebottom where id="+id;
         List<TrippleBottom> trippleBottom=jdbcTemplate.query(sql, new RowMapper<TrippleBottom>() {
@@ -166,6 +172,7 @@ public class PatternDaoImpl implements PatternDao {
 
     @Override
     public Doubletop getDoubletop(String id){
+        //return requested double pattern
         JdbcTemplate jdbcTemplate = new JdbcTemplate(dataSource);
         String sql = "SELECT * from doubletop where id="+id;
         List<Doubletop> doubletop=jdbcTemplate.query(sql, new RowMapper<Doubletop>() {
@@ -193,6 +200,7 @@ public class PatternDaoImpl implements PatternDao {
 
     @Override
     public DoubleBottom getDoubleBottom(String id){
+        //return requested double bottom pattern
         JdbcTemplate jdbcTemplate = new JdbcTemplate(dataSource);
         String sql = "SELECT * from doublebottom where id="+id;
         List<DoubleBottom> doublebottom=jdbcTemplate.query(sql, new RowMapper<DoubleBottom>() {
@@ -220,6 +228,7 @@ public class PatternDaoImpl implements PatternDao {
 
     @Override
     public TrippleTop getTrippleTop(String id){
+        //return requested triple top pattern
         JdbcTemplate jdbcTemplate = new JdbcTemplate(dataSource);
         String sql = "SELECT * from trippletop where id="+id;
         List<TrippleTop> trippletop=jdbcTemplate.query(sql, new RowMapper<TrippleTop>() {
@@ -250,6 +259,7 @@ public class PatternDaoImpl implements PatternDao {
     }
         @Override
     public HeadnShoulder getHeadnShoulder(String id){
+            //return requested head and shoulder pattern
         JdbcTemplate jdbcTemplate = new JdbcTemplate(dataSource);
         String sql = "SELECT * from headnshoulder where id="+id;
         List<HeadnShoulder> headnshoulder=jdbcTemplate.query(sql, new RowMapper<HeadnShoulder>() {
@@ -280,6 +290,7 @@ public class PatternDaoImpl implements PatternDao {
     }
     @Override
     public HeadnShoulderBottom getHeadnShoulderBottom(String id){
+        //return requested head and shoulder inverse pattern
         JdbcTemplate jdbcTemplate = new JdbcTemplate(dataSource);
         String sql = "SELECT * from headnshoulderbottom where id="+id;
         List<HeadnShoulderBottom> headnshoulderbottom=jdbcTemplate.query(sql, new RowMapper<HeadnShoulderBottom>() {
@@ -310,6 +321,7 @@ public class PatternDaoImpl implements PatternDao {
     }
     @Override
     public List<Pattern> getAllPatternList(String type){
+        //return pattern
         JdbcTemplate jdbcTemplate = new JdbcTemplate(dataSource);
         String sql="";
         String pattern=type;
@@ -335,11 +347,13 @@ public class PatternDaoImpl implements PatternDao {
     }
     @Override
     public List<Event> getPatternRealData(String start,String end,String stock){
+        //return events which occurred in given time period in given stock company
         List<Event> events=new ArrayList<Event>();
         JdbcTemplate jdbcTemplate = new JdbcTemplate(dataSource);
         String sql="";
-
-        sql = "SELECT * from livestream where CONVERT(date, SIGNED INTEGER) BETWEEN "+start+" AND "+end+" ORDER BY CONVERT(date, SIGNED INTEGER)";
+        Integer start1 = Integer.parseInt(start)-40;
+        Integer end1 = Integer.parseInt(end)+ 0;
+        sql = "SELECT * from livestream where CONVERT(date, SIGNED INTEGER) BETWEEN "+start1.toString()+" AND "+end1+" ORDER BY CONVERT(date, SIGNED INTEGER)";
         List<Event> tempEventList = jdbcTemplate.query(sql, new RowMapper<Event>() {
 
             @Override

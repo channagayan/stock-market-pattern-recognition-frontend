@@ -39,6 +39,7 @@ public class UserDaoImpl  implements UserDao{
 
     @Override
         public List<User> list() {
+        //return all users
             JdbcTemplate jdbcTemplate = new JdbcTemplate(dataSource);
             String sql = "SELECT * from user";
             List<User> listUser = jdbcTemplate.query(sql, new RowMapper<User>() {

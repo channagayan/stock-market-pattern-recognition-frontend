@@ -33,12 +33,7 @@
     <link rel="stylesheet" type="text/css" href="/css/font-awesome.min.css" />
     <link rel="stylesheet" type="text/css" href="/css/local.css" />
     <link rel="stylesheet" type="text/css" href="/css/multiple-select.css" />
-
-    <script type="text/javascript">
-        function test() {
-            alert("helo");
-        }
-    </script>
+    <link rel="stylesheet" type="text/css" href="/css/style.css" />
 
 </head>
 
@@ -69,7 +64,7 @@
                 <li><a href="bootstrap-grid.html"><i class="fa fa-table"></i> Bootstrap Grid</a></li>--%>
             </ul>
             <ul class="nav navbar-nav navbar-right navbar-user">
-                <li class="dropdown messages-dropdown">
+                <%--<li class="dropdown messages-dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-envelope"></i> Messages <span class="badge">2</span> <b class="caret"></b></a>
                     <ul class="dropdown-menu">
                         <li class="dropdown-header">2 New Messages</li>
@@ -89,14 +84,14 @@
                         <li class="divider"></li>
                         <li><a href="#">Go to Inbox <span class="badge">2</span></a></li>
                     </ul>
-                </li>
+                </li>--%>
                 <li class="dropdown user-dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> Steve Miller<b class="caret"></b></a>
                     <ul class="dropdown-menu">
                         <li><a href="#"><i class="fa fa-user"></i> Profile</a></li>
                         <li><a href="#"><i class="fa fa-gear"></i> Settings</a></li>
                         <li class="divider"></li>
-                        <li><a href="#"><i class="fa fa-power-off"></i> Log Out</a></li>
+                        <li><a href="/logout"><i class="fa fa-power-off"></i> Log Out</a></li>
                     </ul>
                 </li>
             </ul>

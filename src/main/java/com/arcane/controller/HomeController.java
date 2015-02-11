@@ -50,6 +50,7 @@ public class HomeController {
 
     @RequestMapping(method = RequestMethod.GET)
     public ModelAndView printWelcome(ModelMap model){
+        //return dashboard with pattern list
         ModelAndView mav = new ModelAndView("arcane") ;
         List<Pattern> patternList=patternDao.getAllPatternList();
         mav.addObject("patterns", patternList);
@@ -58,6 +59,7 @@ public class HomeController {
     }
     @RequestMapping(value = "/patternTypeList",method = RequestMethod.GET)
     public ModelAndView printPatternList(ModelMap model,@RequestParam("patternName") String patternName){
+        //return available pattern list
         ModelAndView mav = new ModelAndView("pattern") ;
         List<Pattern> patternList=patternDao.getAllPatternList(patternName);
         mav.addObject("patterns", patternList);
@@ -67,13 +69,14 @@ public class HomeController {
     @RequestMapping(value = "/patternList", method = RequestMethod.GET)
     public void getPatternList(HttpServletRequest request, HttpServletResponse response) throws IOException {
         System.out.println("list controller called..............................");
-        response.getWriter().println( "bla bla bla");
+        response.getWriter().println( "test");
     }
 
     @RequestMapping(value = "/patternData", method = RequestMethod.GET)
     @ResponseBody
     public List<Double> getPatternData(HttpServletRequest request, HttpServletResponse response,@RequestParam("patternId") String patternId,
                                    @RequestParam("patternName") String patternName) throws IOException {
+        //return selected pattern data
         List<Double> data=new ArrayList<Double>();
         switch (patternName){
             case "tripplebottom":
@@ -140,6 +143,7 @@ public class HomeController {
     @ResponseBody
     public ArrayList<List<Double[]>> getPatternData1(HttpServletRequest request, HttpServletResponse response,@RequestParam("patternId") String patternId,
                                   @RequestParam("patternName") String patternName) throws IOException {
+        //return event stream related to the pattern
         ArrayList<List<Double[]>> list = new ArrayList<List<Double[]>>();
         List<Double[]> pattern = new ArrayList<Double[]>();
         List<Double[]> patternRange=new ArrayList<Double[]>();

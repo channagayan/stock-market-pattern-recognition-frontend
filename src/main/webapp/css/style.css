@@ -1,6 +1,22 @@
 @charset "utf-8";
 /* CSS Document */
 
+#date{
+    background: white;
+    color: gray;
+    text-align: center;
+}
+
+#alerts{
+    min-height: 506px;
+    max-height: 506px;
+}
+
+#patternNow{
+    min-height: 506px;
+    max-height: 506px;
+}
+
 .float-left {
     float: left;
 }
