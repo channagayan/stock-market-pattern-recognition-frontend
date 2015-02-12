@@ -59,32 +59,10 @@
                 <li><a href="javascript:getPatternPage('headnshoulderbottom');"><i class="fa fa-font"></i> Head and Shoulder Bottom</a></li>
                 <li><a href="javascript:getPatternPage('doublebottom');"><i class="fa fa-font"></i> Double Bottom</a></li>
                 <li><a href="javascript:getPatternPage('doubletop');"><i class="fa fa-list-ol"></i> Double Top</a></li>
-                <%--<li><a href="typography.html"><i class="fa fa-font"></i> Typography</a></li>
-                <li><a href="bootstrap-elements.html"><i class="fa fa-list-ul"></i> Bootstrap Elements</a></li>
-                <li><a href="bootstrap-grid.html"><i class="fa fa-table"></i> Bootstrap Grid</a></li>--%>
+
             </ul>
             <ul class="nav navbar-nav navbar-right navbar-user">
-                <%--<li class="dropdown messages-dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-envelope"></i> Messages <span class="badge">2</span> <b class="caret"></b></a>
-                    <ul class="dropdown-menu">
-                        <li class="dropdown-header">2 New Messages</li>
-                        <li class="message-preview">
-                            <a href="#">
-                                <span class="avatar"><i class="fa fa-bell"></i></span>
-                                <span class="message">Security alert</span>
-                            </a>
-                        </li>
-                        <li class="divider"></li>
-                        <li class="message-preview">
-                            <a href="#">
-                                <span class="avatar"><i class="fa fa-bell"></i></span>
-                                <span class="message">Security alert</span>
-                            </a>
-                        </li>
-                        <li class="divider"></li>
-                        <li><a href="#">Go to Inbox <span class="badge">2</span></a></li>
-                    </ul>
-                </li>--%>
+                
                 <li class="dropdown user-dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> Steve Miller<b class="caret"></b></a>
                     <ul class="dropdown-menu">
@@ -117,10 +95,6 @@
                                             <select id="company" placeholder="Company" >
                                                 <option value="a" selected>Company ABC1 Pvt Ltd</option>
                                                 <option value="b">Company ABC2 Pvt Ltd</option>
-                                                <option value="c">Company ABC3 Pvt Ltd</option>
-                                                <option value="d">Company ABC4 Pvt Ltd</option>
-                                                <option value="e">Company ABC5 Pvt Ltd</option>
-                                                <option value="f">Company ABC6 Pvt Ltd</option>
                                             </select>
                                         </div>
                                     </div>
