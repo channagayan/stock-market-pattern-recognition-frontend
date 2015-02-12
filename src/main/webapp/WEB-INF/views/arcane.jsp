@@ -1,9 +1,24 @@
 <%--
-  Created by IntelliJ IDEA.
-  User: Rashmi
+  /*
+ * Licensed to the Apache Software Foundation (ASF) under one or more
+ * contributor license agreements.  See the NOTICE file distributed with
+ * this work for additional information regarding copyright ownership.
+ * The ASF licenses this file to You under the Apache License, Version 2.0
+ * (the "License"); you may not use this file except in compliance with
+ * the License.  You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
   Date: 11/13/2014
   Time: 6:21 PM
-  To change this template use File | Settings | File Templates.
+  ARCANE Dashboard
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
@@ -18,12 +33,7 @@
     <link rel="stylesheet" type="text/css" href="/css/font-awesome.min.css" />
     <link rel="stylesheet" type="text/css" href="/css/local.css" />
     <link rel="stylesheet" type="text/css" href="/css/multiple-select.css" />
-
-    <script type="text/javascript">
-        function test() {
-            alert("helo");
-        }
-    </script>
+    <link rel="stylesheet" type="text/css" href="/css/style.css" />
 
 </head>
 
@@ -54,7 +64,7 @@
                 <li><a href="bootstrap-grid.html"><i class="fa fa-table"></i> Bootstrap Grid</a></li>--%>
             </ul>
             <ul class="nav navbar-nav navbar-right navbar-user">
-                <li class="dropdown messages-dropdown">
+                <%--<li class="dropdown messages-dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-envelope"></i> Messages <span class="badge">2</span> <b class="caret"></b></a>
                     <ul class="dropdown-menu">
                         <li class="dropdown-header">2 New Messages</li>
@@ -74,14 +84,14 @@
                         <li class="divider"></li>
                         <li><a href="#">Go to Inbox <span class="badge">2</span></a></li>
                     </ul>
-                </li>
+                </li>--%>
                 <li class="dropdown user-dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> Steve Miller<b class="caret"></b></a>
                     <ul class="dropdown-menu">
                         <li><a href="#"><i class="fa fa-user"></i> Profile</a></li>
                         <li><a href="#"><i class="fa fa-gear"></i> Settings</a></li>
                         <li class="divider"></li>
-                        <li><a href="#"><i class="fa fa-power-off"></i> Log Out</a></li>
+                        <li><a href="/logout"><i class="fa fa-power-off"></i> Log Out</a></li>
                     </ul>
                 </li>
             </ul>
@@ -114,9 +124,12 @@
                                             </select>
                                         </div>
                                     </div>
-                                    <div class="col-sm-12 col-md-6">
+                                    <div class="col-sm-12 col-md-3">
+                                    </div>
+                                    <div class="col-sm-12 col-md-3">
                                         <input id="date" class="col-sm-12 col-md-12" type="text" name="lname" disabled>
                                     </div>
+
 
                                 </div>
                             </div>
@@ -147,10 +160,11 @@
 
                                     <c:forEach var="pattern" items="${patterns}">
                                         <li class="list-group-item liitem" onclick="javaScript:loadGraph('${pattern.id}','${pattern.name}')">
-                                            <strong>${pattern.id}:</strong>
-                                            <span>${pattern.stock}</span>
-                                            <span class="pull-right"  >${pattern.name}</span>
-
+                                            <strong  style="visibility: hidden;">${pattern.id}:</strong>
+                                            <span style="visibility: hidden;">${pattern.stock}</span>
+                                            <span class="pull-left">${pattern.stockName}</span>
+                                            <span class="pull-right"  >${pattern.patternEnum}</span>
+                                            <span style="visibility: hidden;">${pattern.name}</span>
                                         </li>
                                     </c:forEach>
 
@@ -199,7 +213,6 @@
     <script type="text/javascript" src="/js/jquery-1.10.2.min.js"></script>
     <script type="text/javascript" src="/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="/js/jquery.multiple.select.js"></script>
-    <%--<script src="http://code.highcharts.com/highcharts.js" type="text/javascript"></script>--%>
     <script src="http://code.highcharts.com/stock/highstock.js"></script>
     <script src="http://code.highcharts.com/modules/exporting.js" type="text/javascript"></script>
     <script src="/js/liveChartWithWebsocket.js" type="text/javascript"></script>

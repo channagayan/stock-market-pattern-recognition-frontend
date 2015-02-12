@@ -16,12 +16,6 @@ body {
   color: #3a87ad;
 }
 
-#date{
-    color: gray;
-    background-color: white;
-    text-align: right;
-}
-
 #alerts .panel-heading{
     color: #ffffff;
     background-color: #022f5a;
