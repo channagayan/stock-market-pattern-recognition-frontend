@@ -18,6 +18,8 @@ package com.arcane.dao.Impl;
 
 import com.arcane.dao.UserDao;
 import com.arcane.model.User;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 
@@ -30,7 +32,7 @@ import java.util.List;
  * DAO implementation of User Model
  */
 public class UserDaoImpl  implements UserDao{
-
+    private static final Logger LOG = LoggerFactory.getLogger(UserDaoImpl.class);
     private DataSource dataSource;
 
     public UserDaoImpl(DataSource dataSource) {
@@ -40,6 +42,7 @@ public class UserDaoImpl  implements UserDao{
     @Override
         public List<User> list() {
         //return all users
+        LOG.info("Returning all the users");
             JdbcTemplate jdbcTemplate = new JdbcTemplate(dataSource);
             String sql = "SELECT * from user";
             List<User> listUser = jdbcTemplate.query(sql, new RowMapper<User>() {

@@ -22,6 +22,8 @@ import com.arcane.dao.PatternDao;
 import com.arcane.dao.UserDao;
 import com.arcane.model.*;
 import com.fasterxml.jackson.databind.util.JSONPObject;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -44,6 +46,7 @@ import java.util.Map;
 @RequestMapping("/arcane")
 public class HomeController {
 
+    private static final Logger LOG = LoggerFactory.getLogger(HomeController.class);
 
     @Autowired
     private PatternDao patternDao;
@@ -54,7 +57,7 @@ public class HomeController {
         ModelAndView mav = new ModelAndView("arcane") ;
         List<Pattern> patternList=patternDao.getAllPatternList();
         mav.addObject("patterns", patternList);
-        System.out.println(".........................calling db controller..................");
+        LOG.info("Calling db controller.");
         return mav;
     }
     @RequestMapping(value = "/patternTypeList",method = RequestMethod.GET)
@@ -63,12 +66,12 @@ public class HomeController {
         ModelAndView mav = new ModelAndView("pattern") ;
         List<Pattern> patternList=patternDao.getAllPatternList(patternName);
         mav.addObject("patterns", patternList);
-        System.out.println(".........................calling patternList controller.................."+patternName);
+        LOG.info("Calling patternList controller.."+patternName);
         return mav;
     }
     @RequestMapping(value = "/patternList", method = RequestMethod.GET)
     public void getPatternList(HttpServletRequest request, HttpServletResponse response) throws IOException {
-        System.out.println("list controller called..............................");
+        LOG.info("list controller called.");
         response.getWriter().println( "test");
     }
 
@@ -77,6 +80,7 @@ public class HomeController {
     public List<Double> getPatternData(HttpServletRequest request, HttpServletResponse response,@RequestParam("patternId") String patternId,
                                    @RequestParam("patternName") String patternName) throws IOException {
         //return selected pattern data
+        LOG.info("Pattern Min Max data retrieving");
         List<Double> data=new ArrayList<Double>();
         switch (patternName){
             case "tripplebottom":
@@ -130,7 +134,7 @@ public class HomeController {
                 data.add(headnshoulderbottom.getThirdMinPrice());
                 data.add(headnshoulderbottom.getBreakPointPrice());
                 break;
-            default:System.out.println("no pattern found in switch case");
+            default:LOG.info("no pattern found in switch case");
 
 
         }
@@ -149,6 +153,7 @@ public class HomeController {
         List<Double[]> patternRange=new ArrayList<Double[]>();
         List<Event> eventList=new ArrayList<Event>();
 
+        LOG.info("Pattern data retrieving started.",patternName);
 
 
         switch (patternName) {
@@ -240,7 +245,7 @@ public class HomeController {
                 list.add(patternRange);
                 break;
             default:
-                System.out.println("no pattern found in switch case");
+                LOG.info("no pattern found in switch case");
 
         }
         return list;
