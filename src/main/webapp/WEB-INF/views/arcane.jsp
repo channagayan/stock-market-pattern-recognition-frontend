@@ -115,7 +115,7 @@
                                     <div class="col-sm-12 col-md-6">
                                         <div class="form-group">
                                             <select id="company" placeholder="Company" >
-                                                <option value="a">Company ABC1 Pvt Ltd</option>
+                                                <option value="a" selected>Company ABC1 Pvt Ltd</option>
                                                 <option value="b">Company ABC2 Pvt Ltd</option>
                                                 <option value="c">Company ABC3 Pvt Ltd</option>
                                                 <option value="d">Company ABC4 Pvt Ltd</option>
@@ -129,6 +129,8 @@
                                     <div class="col-sm-12 col-md-3">
                                         <input id="date" class="col-sm-12 col-md-12" type="text" name="lname" disabled>
                                     </div>
+
+
                                 </div>
                             </div>
 

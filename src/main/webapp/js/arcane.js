@@ -31,7 +31,9 @@ $(function() {
         width: '100%',
         filter: true
     });
+
     $("#date").val(moment().format('MMMM Do YYYY'));
+
 });
 
 
