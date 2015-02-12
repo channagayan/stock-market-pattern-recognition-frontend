@@ -105,7 +105,7 @@
                                     <div class="col-sm-12 col-md-6">
                                         <div class="form-group">
                                             <select id="company" placeholder="Company" >
-                                                <option value="a">Company ABC1 Pvt Ltd</option>
+                                                <option value="a" selected>Company ABC1 Pvt Ltd</option>
                                                 <option value="b">Company ABC2 Pvt Ltd</option>
                                                 <option value="c">Company ABC3 Pvt Ltd</option>
                                                 <option value="d">Company ABC4 Pvt Ltd</option>
@@ -117,24 +117,7 @@
                                     <div class="col-sm-12 col-md-6">
                                         <input id="date" class="col-sm-12 col-md-12" type="text" name="lname" disabled>
                                     </div>
-                                    <%--  <div class="col-sm-12 col-md-6">
-                                          <div class="form-group">
-                                              <select id="pattern" multiple="multiple" placeholder="Pattern">
-                                                  <option value="1">Double - TOP</option>
-                                                  <option value="2">Double - BOTTOM</option>
-                                                  <option value="3">Head and Shoulder - TOP</option>
-                                                  <option value="4">Head and Shoulder - BOTTOM</option>
-                                                  <option value="5">Triple -  TOP</option>
-                                                  <option value="6">Triple - BOTTOM</option>
-                                                  <option value="7">Pending</option>
-                                                  <option value="8">Pending</option>
-                                                  <option value="9">Pending</option>
-                                                  <option value="10">Pending</option>
-                                                  <option value="11">Pending</option>
-                                                  <option value="12">Pending</option>
-                                              </select>
-                                          </div>
-                                      </div>--%>
+
                                 </div>
                             </div>
 

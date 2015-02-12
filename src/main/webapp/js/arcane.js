@@ -14,9 +14,9 @@ $(function() {
         width: '100%',
         filter: true
     });
-    alert("hello");
+    //alert("hello");
     $("#date").val(moment().format('MMMM Do YYYY, h:mm:ss a'));
-    alert("hello here out");
+    //alert("hello here out");
 });
 
 
