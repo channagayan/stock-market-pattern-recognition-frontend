@@ -11,7 +11,14 @@
     min-height: 506px;
     max-height: 506px;
 }
+#alerts .panel-body{
+    min-height: 430px;
+    max-height: 504306px;
+}
 
+#alerts ol{
+    max-height: 380px;
+}
 #patternNow{
     min-height: 506px;
     max-height: 506px;
